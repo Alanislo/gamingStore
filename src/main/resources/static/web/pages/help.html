@@ -15,71 +15,74 @@
 </head>
 
 <body>
-    <div class="layout" id="app" v-cloak>
-        <div class="header-section">
-            <header>
-                <div class="w-100 justify-content-start">
-                    <img class="logoWell me-2" src="../images/Well_Played.png" alt="">
-                </div>
-                <nav class="navbar navbar-expand-lg text-center text-white d-flex w-100 justify-content-end">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarNav" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon text-white"></span>
-                    </button>
-                    <div class="collapse navbar-collapse w-100 justify-content-end gap-5 me-5 align-items-center p-3"
-                        id="navbarSupportedContent">
-                        <ul class="navbar-nav ml-auto ulNav align-items-end">
-                            <li class="nav-item">
-                                <a class="nav-link" href="../../index.html">Home</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    Products
-                                </a>
-                                <ul class="dropdown-menu dropMenu">
-                                    <div class="d-flex flex-column">
-                                        <li><a class="dropdown-item aDrop" href="./products.html">All products <i
-                                                    class="bi bi-pc-display fs-2"></i></a>
-                                        </li>
+    <div id="app" class="header-section mb-5">
+        <header>
+            <div class="w-100 justify-content-start">
+                <img class="logoWell me-2" src="../images/Well_Played.png" alt="">
+            </div>
+            <nav class="navbar navbar-expand-lg text-center text-white d-flex w-100 justify-content-end">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon text-white"></span>
+                </button>
+                <div class="collapse navbar-collapse w-100 justify-content-end gap-5 me-5 align-items-center p-3"
+                    id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto ulNav align-items-end">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../index.html">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Products
+                            </a>
+                            <ul class="dropdown-menu dropMenu">
+                                <div class="d-flex flex-column">
+                                    <li><a class="dropdown-item aDrop" href="./products.html">All products <i
+                                                class="bi bi-pc-display fs-2"></i></a>
+                                    </li>
+                                    <hr class="dropdown-divider">
+                                    <li><a class="dropdown-item aDrop" href="#">Headphones <i
+                                                class="bi bi-mouse3 fs-2"></i></a>
+                                    </li>
+                                    <li>
                                         <hr class="dropdown-divider">
-                                        <li><a class="dropdown-item aDrop" href="#">Headphones <i
-                                                    class="bi bi-mouse3 fs-2"></i></a>
-                                        </li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <li><a class="dropdown-item aDrop" href="#">Microphone <i
-                                                    class="bi bi-keyboard fs-2"></i></a></li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <li><a class="dropdown-item aDrop" href="#">Keyboards <i
-                                                    class="bi bi-mic fs-2"></i></a>
-                                        </li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <li><a class="dropdown-item aDrop" href="#">Mouse <i
-                                                    class="bi bi-headset fs-2"></i></a></li>
-                                    </div>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#">Help Center</a>
-                            </li>
-                            <button id="buttonSession">
-                                <a href="./logIn.html" class="logIn">{{buttonText}}</a>
-                            </button>
-                        </ul>
-                    </div>
-                </nav>
-               
+                                    </li>
+                                    <li><a class="dropdown-item aDrop" href="#">Microphone <i
+                                                class="bi bi-keyboard fs-2"></i></a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item aDrop" href="#">Keyboards <i
+                                                class="bi bi-mic fs-2"></i></a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item aDrop" href="#">Mouse <i
+                                                class="bi bi-headset fs-2"></i></a></li>
+                                </div>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./help.html">Help Center</a>
+                        </li>
+                        <button id="buttonSession">
+                            <a href="./logIn.html" class="logIn">{{buttonText}}</a>
+                        </button>
+                </ul>
+            </nav>
+            <section class="banner">
+                <div class="content-banner">
 
-            </header>
-        </div>
+                </div>
+            </section>
+        </header>
+      
+    </div>
         <main class="flex-grow-1 w-100">
+           
             <div class="d-flex pt-5 container-fluid justify-content-between flex-wrap">
                 <div class="h3h4 ms-4 mt-5">
                     <h3>Customer Care <i class="bi bi-people"></i></h3>

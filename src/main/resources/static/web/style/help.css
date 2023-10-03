@@ -28,10 +28,137 @@
 [v-cloak] {
     display: none !important;
 }
-/*prueba*/
-.banner {
-    background-image: linear-gradient(100deg, #00000091, #00000020),url(../images/components2.png);
-    height: 30rem;
+/* nav */
+
+
+nav {
+    background-color: transparent !important;
+    position: absolute !important;
+    overflow: hidden !important;
+    z-index: 1 !important;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), #0000003c, rgba(0, 0, 0, 0.819)) !important;
+    position: absolute !important;
+    left: 0;
+  }
+  
+  nav a {
+    text-decoration: none !important;
+    color: white !important;
+    padding: 10px 20px !important;
+    position: relative !important;
+    font-size: 24px !important;
+    border-radius: 100px !important;
+  }
+  
+  nav a:hover {
+    color: #5CE1E6 !important;
+  }
+  
+  .active {
+    border-radius: 100px !important;
+    font-weight: bolder !important;
+  }
+  
+  nav::before {
+    content: "" !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 5px !important;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), #ffffff00, rgb(255, 255, 255)) !important;
+    pointer-events: none !important;
+    z-index: -1 !important;
+    height: 2rem;
+  }
+  
+  .navbar-toggler {
+    color: white;
+    background-color: white;
+    border: var(--bs-border-width) solid rgb(252 0 0);
+  }
+  
+  .ulNav {
+    display: flex !important;
+    align-items: baseline !important;
+    gap: 1rem !important;
+  }
+  
+  .show ul {
+    align-items: end !important;
+  }
+  
+  h1 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 80px;
+    text-transform: uppercase;
+    font-family: var(--text-title);
+  }
+  
+  .header-section h1 {
+    position: absolute;
+    left: 3%;
+    bottom: 50px;
+    z-index: 3;
+    font-size: 60px;
+    line-height: 1.2;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    width: 36vw;
+  }
+  
+  .container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 65px;
+  }
+  
+  .img-container {
+    position: relative;
+  }
+  
+  .img-container::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    bottom: 0;
+    background: linear-gradient(to top, rgb(255 255 255) 0%, rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
+  }
+  
+  .logoWell {
+    width: 160px;
+    height: 160px;
+    position: absolute;
+    z-index: 2;
+    margin: 1rem;
+    left: 0;
+  }
+  
+  .dropMenu {
+    position: relative !important;
+  }
+  
+  .aDrop {
+    color: black !important;
+  }
+  
+  .imgDrop {
+    height: 20rem;
+  }
+  
+  
+  /* termina  nav */
+  
+  .banner {
+    background-image: linear-gradient(100deg, #000000, #00000020), url(../images/components2.png);
+    height: 30rem!important;
     background-size: cover;
     background-position: center;
   }
@@ -71,129 +198,6 @@
     font-family: var(--text-title);
     font-weight: bold !important;
   }
-/* nav */
-
-nav {
-    background-color: transparent !important;
-    position: absolute !important;
-    overflow: hidden !important;
-    z-index: 1 !important;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0), #0000003c, rgba(0, 0, 0, 0.819)) !important;
-}
-
-nav a {
-    text-decoration: none !important;
-    color: white !important;
-    padding: 10px 20px !important;
-    position: relative !important;
-    font-size: 24px !important;
-    border-radius: 100px !important;
-}
-
-nav a:hover {
-    color: red !important;
-}
-
-.active {
-    border-radius: 100px !important;
-    font-weight: bolder !important;
-}
-
-nav::before {
-    content: "" !important;
-    position: absolute !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 5px !important;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0), #ffffff00, rgb(255, 255, 255)) !important;
-    pointer-events: none !important;
-    z-index: -1 !important;
-    height: 2rem;
-}
-
-.navbar-toggler {
-    color: white;
-    background-color: white;
-    border: var(--bs-border-width) solid rgb(252 0 0);
-}
-
-.ulNav {
-    display: flex !important;
-    align-items: baseline !important;
-    gap: 1rem !important;
-}
-
-.show ul {
-    align-items: end !important;
-}
-
-h1 {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 80px;
-    line-height: 80px;
-    text-transform: uppercase;
-    font-family: var(--text-title);
-}
-
-.header-section h1 {
-    position: absolute;
-    left: 3%;
-    bottom: 50px;
-    z-index: 3;
-    font-size: 60px;
-    line-height: 1.2;
-    color: black;
-    display: flex;
-    flex-direction: column;
-    width: 36vw;
-}
-
-.container-fluid {
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 65px;
-}
-
-.img-container {
-    position: relative;
-}
-
-.img-container::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 30%;
-    bottom: 0;
-    background: linear-gradient(to top, rgb(255 255 255) 0%, rgba(255, 255, 255, 0) 100%);
-    pointer-events: none;
-}
-
-.logoWell {
-    width: 160px;
-    height: 160px;
-    position: absolute;
-    z-index: 2;
-    margin: 1rem;
-}
-
-.dropMenu {
-    position: relative !important;
-}
-
-.aDrop {
-    color: black !important;
-}
-
-.imgDrop {
-    height: 20rem;
-}
-
-/* hasta aca todo el nav con imagen */
-
 .btnData {
     -ms-flex-align: center;
     align-items: center;
@@ -317,7 +321,9 @@ h1 {
 }
 
 .logoWellFooter {
-    width: 14rem;
+    width: 14rem !important;
+    position: relative;
+    left: 85%;
 }
 
 .followUs {
@@ -589,3 +595,16 @@ h1 {
 .mapsSection {
     background-color: #f5f6f7 !important;
 }
+
+@media only screen and (min-width:320px) and (max-width:767px) {
+    * {
+      font-size: 15px;
+    }
+  
+  .logoWellFooter {
+    width: 10rem !important;
+    position: relative;
+    left: 40%!important;
+  }
+    
+  }
