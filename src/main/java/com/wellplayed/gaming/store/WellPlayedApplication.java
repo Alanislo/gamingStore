@@ -116,7 +116,7 @@ public class WellPlayedApplication {
 //            Ticket ticketprueba2 = new Ticket("6775",240.0, LocalDateTime.now(), BuyType.CREDIT);
 
 //            julianBrunelli.addTicket(ticketPrueba);
-//            ticketRepository.save(ticketPrueba);
+//            ticketRepository.save(ticketPrueba);git
 
 //            ticketPrueba.addBuy(buyPrueba);
 //            buyRepository.save(buyPrueba);
