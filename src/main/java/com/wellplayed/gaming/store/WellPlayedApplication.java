@@ -25,7 +25,7 @@ public class WellPlayedApplication {
     @Bean
     public CommandLineRunner initData(ClientRepository clientRepository, ComponentRepository componentRepository, BuyRepository buyRepository, TicketRepository ticketRepository) {
         return args -> {
-            Client julianBrunelli = new Client("JulianBrunelli@outlook.com", "1234", 43317950, 1925, "36 e/ 123 y 124", "2216178731");
+   /*         Client julianBrunelli = new Client("JulianBrunelli@outlook.com", "1234", 43317950, 1925, "36 e/ 123 y 124", "2216178731");
             clientRepository.save(julianBrunelli);
 
             Component mouseHyperX1 = new Component("Mouse", "HyperX", "Pulsefire Core - RGB Gaming Mouse", "The HyperX Pulsefire Core delivers the essentials for gamers looking for a solid, comfortable, wired RGB gaming mouse. The Pixart 3327 optical sensor gives players precise, smooth tracking with no hardware acceleration, and has native DPI settings up to 6200 DPI. The ergonomically-designed Pulsefire Core has textured side grips for a comfortable, no-slip grip, and its symmetrical shape is suitable for both palm and claw grip. It features high-quality switches with crisp tactile feedback rated for up to 20 million clicks. Customize lighting, DPI settings, and macros for 7 programmable buttons with HyperX NGENUITY software and set your mouse up just the way you want it. The large skates on Pulsefire Core help deliver accurate aiming by giving you a smooth, controlled glide as you move the mouse.", Arrays.asList("Pixart 3327 optical sensor","6200 DPI / 220 IPS / 30G", "Customizable with HyperX NGENUITY software", "Weight: 87g"), Arrays.asList("Pink"), Arrays.asList("https://hyperx.com/cdn/shop/files/hyperx_pulsefire_core_white_pink_0_main_1080x.jpg?v=1695137191", "https://hyperx.com/cdn/shop/files/hyperx_pulsefire_core_white_pink_3_front_angled_1080x.jpg?v=1695137191", "https://hyperx.com/cdn/shop/files/hyperx_pulsefire_core_white_pink_7_rgb_1080x.jpg?v=1695137221", "https://hyperx.com/cdn/shop/files/hyperx_pulsefire_core_white_pink_6_bottom_1080x.jpg?v=1695137221", "https://hyperx.com/cdn/shop/files/hyperx_pulsefire_core_white_pink_5_front_back_1080x.jpg?v=1695137191"), 29.99, 5);
@@ -144,7 +144,7 @@ public class WellPlayedApplication {
 
             Client darylBaptie = new Client("DarylBaptie@outlook.com", "1234", 35042684, 1925, "36 e/ 123 y 124", "114972353");
             clientRepository.save(darylBaptie);
-
+*/
 
         };
     }
