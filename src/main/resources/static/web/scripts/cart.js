@@ -6,6 +6,7 @@ createApp({
             products: [],
             productQty: [],
             localStorage: [],
+            buttonTexts: ['Log In', 'Register'],
             localStorageQty: 0,
             totalProduct: 0,
             subtotalProduct: 0,
@@ -15,6 +16,7 @@ createApp({
     },
     created() {
         this.loadData();
+        setInterval(this.changeButtonText, 2000);
         this.localStorage = JSON.parse(localStorage.getItem("carritoProductos"));
         this.localStorageQty = this.localStorage.length;
         console.log(this.localStorage);
@@ -24,7 +26,6 @@ createApp({
             axios.get("/api/components")
                 .then((response) => {
                     this.products = response.data;
-                    console.log(this.products);
                 })
                 .catch((error) => console.log(error));
         },
@@ -50,7 +51,7 @@ createApp({
                 this.localStorage.push(product)
             }
             localStorage.setItem("carritoProductos", JSON.stringify(this.localStorage));
-        }
+        },
     },
     computed: {
         subTotalCombined() {
@@ -60,6 +61,9 @@ createApp({
             for (let product of this.localStorage) {
                 product.total = product.disponibles * product.precio;
             }
+        },
+        buttonText() {
+            return this.buttonTexts[this.currentIndex];
         },
         // changeStorage() {
         //     window.addEventListener('storage', (event) => {

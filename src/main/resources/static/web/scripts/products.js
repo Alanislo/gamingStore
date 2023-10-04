@@ -32,14 +32,13 @@ createApp({
       carrito: [],
       cart: 0,
       localStorage: [],
-      localStorageQty: 0,
+      localStorageQty: 0
     }
   },
   created() {
     this.loadData()
     setInterval(this.changeButtonText, 2000);
     this.localStorage = JSON.parse(localStorage.getItem("carritoProductos"));
-    this.localStorageQty = this.localStorage.length;
   },
   methods: {
     showOverlay() {
@@ -106,7 +105,7 @@ createApp({
     },
     addCart(producto) {
       this.cart++;
-      this.carrito.push({ ...producto, qty: 1 });
+      this.carrito.push(producto);
       localStorage.setItem("carritoProductos", JSON.stringify(this.carrito));
     },
   },
