@@ -96,7 +96,6 @@ public class ServiceEmailSend {
         props.put("mail.smtp.port", "587");
         String username = "gamingstore521@gmail.com";
         String password = "gaming-store";
-        String sender = messageMail.getSender();
         String addressee = messageMail.getAddressee();
         String issue = messageMail.getIssue();
         String comment = messageMail.getComment();
@@ -119,7 +118,6 @@ public class ServiceEmailSend {
             MimeMessage messageGamingStore = javaMailSender.createMimeMessage();
             MimeMessageHelper helpGamingStore = new MimeMessageHelper(messageGamingStore, true);
             helpGamingStore.setFrom(new InternetAddress(username));
-            helpGamingStore.setTo(new InternetAddress(sender));
             helpGamingStore.setSubject(issue);
 
             String messageForGamingStore = "This is the receipt for your invoice.";

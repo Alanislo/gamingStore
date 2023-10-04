@@ -88,7 +88,6 @@ public class TicketController {
         try {
             // Generar el Correo
             Mail mail = new Mail();
-            mail.setSender("gamingstore521@gmail.com");
             mail.setAddressee(client.getEmail());
             mail.setIssue("Invoice - Buy #" + ticket.getNumberOrder());
             mail.setComment("Your purchase invoice has been attached in Gaming-store.");

@@ -12,6 +12,13 @@
     --red-light: #d0142c;
 }
 
+body {
+    font-family: 'Roboto', sans-serif !important;
+    margin: 0;
+    background-image: url(../images/iCUE_MURALS_ENVIRONMENTAL_RENDER_01.png);
+    background-image: no-repeat;
+}
+
 .main-cart {
     min-height: 100vh;
     display: flex;

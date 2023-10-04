@@ -354,7 +354,7 @@ h1 {
 
 .wrapper {
   display: flex;
-  max-width: 1200px;
+  max-width: 95vw;
   position: relative;
   background-color: #f5f6f7 !important;
   margin-top: 3rem;
@@ -1123,16 +1123,9 @@ h1 {
     padding: 1rem;
   }
 
-  .logoWellFooter {
-    width: 4rem !important;
-    position: relative;
-    left: 40% !important;
-  }
-
   .followUs {
     width: 50%;
     position: relative;
-    margin-left: 2rem;
   }
 }
 
@@ -1288,7 +1281,7 @@ footer  */
 .logoWellFooter {
   width: 14rem !important;
   position: relative;
-  left: 85%;
+  left: 20%;
 }
 
 .followUs {

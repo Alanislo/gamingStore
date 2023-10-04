@@ -17,7 +17,7 @@ createApp({
     created() {
         this.loadData();
         setInterval(this.changeButtonText, 2000);
-        this.localStorage = JSON.parse(localStorage.getItem("carritoProductos"));
+        this.localStorage = JSON.parse(localStorage.getItem("carritoProductos")) ?? [];
         this.localStorageQty = this.localStorage.length;
         this.createProperty();
         console.log(this.localStorage);
