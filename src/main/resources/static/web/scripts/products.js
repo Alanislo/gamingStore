@@ -89,7 +89,7 @@ createApp({
   },
   computed: {
   priceRange() {
-    console.log('hello')
+
         this.priceRange = this.prices.map(range => range.min)
   },
 

@@ -68,12 +68,15 @@
 
 .card-footer {
 padding: 0.5rem 0rem !important;
+  background-color: white !important;
+  border-top: none !important;
 }
 
-a {
+.card-body > a {
 text-decoration: none !important;
-color: black;
+color: black !important;
 }
+
 
 .card {
 max-height: 24rem;
@@ -267,6 +270,10 @@ h5 {
 #remainingUnitsWarning {
 position: absolute;
 z-index: 100;
+}
+
+.outerDiv {
+position: relative;
 }
 
 .button-categories {
