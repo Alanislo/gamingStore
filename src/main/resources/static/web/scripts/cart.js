@@ -1,223 +1,84 @@
 const { createApp } = Vue;
 
-const options = {
+createApp({
     data() {
         return {
-            carrito: [],
-            cantidadTotalProductos: 0,
-            totalPrecio: 0,
-            productosMouse: undefined,
-            productosKeyboard: undefined,
-            productosMicrophone: undefined,
-            productosHeadphone: undefined
-        }
+            products: [],
+            productQty: [],
+            localStorage: [],
+            buttonTexts: ['Log In', 'Register'],
+            localStorageQty: 0,
+            totalProduct: 0,
+            subtotalProduct: 0,
+            total: 0,
+            iva: 0
+        };
     },
     created() {
-        if (localStorage.getItem('carrito') != null) {
-            this.cantidadTotalProductos = JSON.parse(localStorage.getItem('cantidadTotalProductos'))
-            this.productosMouse = JSON.parse(localStorage.getItem('productosMouse'))
-            this.productosKeyboard = JSON.parse(localStorage.getItem('productosKeyboard'))
-            this.productosMicrophone = JSON.parse(localStorage.getItem('productosMicrophone'))
-            this.productosHeadphone = JSON.parse(localStorage.getItem('productosHeadphone'))
-            this.carrito = JSON.parse(localStorage.getItem('carrito'))
-            this.totalPrecio = JSON.parse(localStorage.getItem('totalPrecio'))
-        } else {
-            fetch('/api/components')
-                .then(response => response.json())
-                .then(data => {
-                    this.productosMouse = data.filter(producto => producto.category == 'mouse')
-                    this.productosKeyboard = data.filter(producto => producto.category == 'keyboard')
-                    this.productosMicrophone = data.filter(producto => producto.category == 'microphone')
-                    this.productosHeadphone = data.filter(producto => producto.category == 'headphone')
-                })
-                .catch(error => console.log(error))
-        }
+        this.loadData();
+        setInterval(this.changeButtonText, 2000);
+        this.localStorage = JSON.parse(localStorage.getItem("carritoProductos"));
+        this.localStorageQty = this.localStorage.length;
+        this.createProperty();
+        console.log(this.localStorage);
     },
     methods: {
-        agregarProducto(prod) {
-            if (prod.stock > 0) {
-                if (this.carrito.find(producto => producto.id == prod.id)) {
-                    this.carrito.forEach(producto => {
-                        if (producto.id == prod.id) {
-                            producto.cantidadEnCarrito++
-                            producto.stock--
-                        }
-                    })
-                    if (prod.category == 'mouse') {
-                        this.productosMouse.forEach(producto => {
-                            if (producto.id == prod.id) {
-                                producto.cantidadEnCarrito++
-                                producto.stock--
-                            }
-                        })
-                    } else if (prod.category == 'keyboard') {
-                        this.productosKeyboard.forEach(producto => {
-                            if (producto.id == prod.id) {
-                                producto.cantidadEnCarrito++
-                                producto.stock--
-                            }
-                        })
-                    } else if (prod.category == 'microphone') {
-                        this.productosMicrophone.forEach(producto => {
-                            if (producto.id == prod.id) {
-                                producto.cantidadEnCarrito++
-                                producto.stock--
-                            }
-                        })
-                    } else {
-                        this.productosHeadphone.forEach(producto => {
-                            if (producto.id == prod.id) {
-                                producto.cantidadEnCarrito++
-                                producto.stock--
-                            }
-                        })
-                    }
-                } else {
-                    this.carrito.push({ ...prod })
-                    this.carrito.forEach(producto => {
-                        if (producto.id == prod.id) {
-                            producto.cantidadEnCarrito = 1
-                            producto.stock--
-                        }
-                    })
-                    if (prod.category == 'mouse') {
-                        this.productosMouse.forEach(producto => {
-                            if (producto.id == prod.id) {
-                                producto.cantidadEnCarrito = 1
-                                producto.stock--
-                            }
-                        })
-                    } else if (prod.category == 'keyboard') {
-                        this.productosKeyboard.forEach(producto => {
-                            if (producto.id == prod.id) {
-                                producto.cantidadEnCarrito = 1
-                                producto.stock--
-                            }
-                        })
-                    } else if (prod.category == 'microphone') {
-                        this.productosMicrophone.forEach(producto => {
-                            if (producto.id == prod.id) {
-                                producto.cantidadEnCarrito = 1
-                                producto.stock--
-                            }
-                        })
-                    } else {
-                        this.productosHeadphone.forEach(producto => {
-                            if (producto.id == prod.id) {
-                                producto.cantidadEnCarrito = 1
-                                producto.stock--
-                            }
-                        })
-                    }
-                }
-            }
-            this.actualizarTotal()
-            localStorage.setItem('productosMouse', JSON.stringify(this.productosMouse))
-            localStorage.setItem('productosKeyboard', JSON.stringify(this.productosKeyboard))
-            localStorage.setItem('productosMicrophone', JSON.stringify(this.productosMicrophone))
-            localStorage.setItem('productosHeadphone', JSON.stringify(this.productosHeadphone))
-            localStorage.setItem('carrito', JSON.stringify(this.carrito))
-            localStorage.setItem('cantidadTotalProductos', JSON.stringify(this.cantidadTotalProductos))
-            localStorage.setItem('totalPrecio', JSON.stringify(this.totalPrecio))
-        },
-        disminuirProducto(prod) {
-            if (prod.cantidadEnCarrito > 1) {
-                this.carrito.forEach(producto => {
-                    if (producto.id == prod.id) {
-                        producto.cantidadEnCarrito--
-                        producto.stock++
-                    }
+        loadData() {
+            axios.get("/api/components")
+                .then((response) => {
+                    this.products = response.data;
                 })
-                if (prod.category == 'mouse') {
-                    this.productosMouse.forEach(producto => {
-                        if (producto.id == prod.id) {
-                            producto.cantidadEnCarrito--
-                            producto.stock++
-                        }
-                    })
-                } else if (prod.category == 'keyboard') {
-                    this.productosKeyboard.forEach(producto => {
-                        if (producto.id == prod.id) {
-                            producto.cantidadEnCarrito--
-                            producto.stock++
-                        }
-                    })
-                } else if (prod.category == 'microphone') {
-                    this.productosMicrophone.forEach(producto => {
-                        if (producto.id == prod.id) {
-                            producto.cantidadEnCarrito--
-                            producto.stock++
-                        }
-                    })
-                } else {
-                    this.productosHeadphone.forEach(producto => {
-                        if (producto.id == prod.id) {
-                            producto.cantidadEnCarrito--
-                            producto.stock++
-                        }
-                    })
+                .catch((error) => console.log(error));
+        },
+        createProperty() {
+            this.localStorage.map((product) => {
+                if (product.qty <= 0 || product.qty == null) {
+                    product.qty = 1
                 }
+            })
+        },
+        emptyCart() {
+            localStorage.clear("carritoProductos");
+            this.localStorage = [];
+            this.localStorageQty = 0;
+        },
+        removeOneItem(index) {
+            const item = this.localStorage[index];
+            if (item.qty > 1) {
+                item.qty--;
+            } else if (item.qty == 1) {
+                this.localStorage.splice(index, 1);
+                localStorage.setItem("carritoProductos", JSON.stringify(this.localStorage));
+            }
+        },
+        plusItem(product) {
+            const indexProduct = this.localStorage.findIndex((item) => item.id === product.id)
+            if (indexProduct !== -1) {
+                this.localStorage[indexProduct].qty++;
             } else {
-                this.carrito.forEach(producto => {
-                    if (producto.id == prod.id) {
-                        producto.stock++
-                    }
-                })
-                if (prod.category == 'mouse') {
-                    this.productosMouse.forEach(producto => {
-                        if (producto.id == prod.id) {
-                            producto.cantidadEnCarrito--
-                            producto.stock++
-                        }
-                    })
-                } else if (prod.category == 'keyboard') {
-                    this.productosKeyboard.forEach(producto => {
-                        if (producto.id == prod.id) {
-                            producto.cantidadEnCarrito--
-                            producto.stock++
-                        }
-                    })
-                } else if (prod.category == 'microphone') {
-                    this.productosMicrophone.forEach(producto => {
-                        if (producto.id == prod.id) {
-                            producto.cantidadEnCarrito--
-                            producto.stock++
-                        }
-                    })
-                } else {
-                    this.productosHeadphone.forEach(producto => {
-                        if (producto.id == prod.id) {
-                            producto.cantidadEnCarrito--
-                            producto.stock++
-                        }
-                    })
-                }
-                this.carrito.splice(this.carrito.indexOf(prod), 1)
+                this.localStorage.push(product)
             }
-            this.actualizarTotal()
-            localStorage.setItem('productosFarmacia', JSON.stringify(this.productosFarmacia))
-            localStorage.setItem('carrito', JSON.stringify(this.carrito))
-            localStorage.setItem('cantidadTotalProductos', JSON.stringify(this.cantidadTotalProductos))
-            localStorage.setItem('totalPrecio', JSON.stringify(this.totalPrecio))
+            localStorage.setItem("carritoProductos", JSON.stringify(this.localStorage));
         },
-        vaciarCarrito() {
-            localStorage.clear()
-            this.carrito = []
-            this.totalPrecio = 0
-            this.cantidadTotalProductos = 0
-        },
-        actualizarTotal() {
-            this.totalPrecio = this.carrito.reduce((acc, producto) => acc + Number(producto.precio * producto.cantidadEnCarrito), 0)
-        }
-
     },
     computed: {
-        contadorCarrito() {
-            this.cantidadTotalProductos = this.carrito.reduce((acc, producto) => acc + producto.cantidadEnCarrito, 0);
-        }
-    }
-}
-
-const app = createApp(options)
-
-app.mount("#app")
+        subTotalCombined() {
+            this.localStorage.reduce((total, articulo) => total + articulo.price * articulo.qty, 0);
+        },
+        total() {
+            for (let product of this.localStorage) {
+                product.total = product.disponibles * product.precio;
+            }
+        },
+        buttonText() {
+            return this.buttonTexts[this.currentIndex];
+        },
+        // changeStorage() {
+        //     window.addEventListener('storage', (event) => {
+        //         if (event.key === 'carritoProductos') {
+        //             this.carrito = JSON.parse(localStorage.getItem('carrito') ?? []);
+        //         }
+        //     })
+        // },
+    },
+}).mount("#app");

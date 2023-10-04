@@ -4,11 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../images/Well_Played.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <title>Gaming-Store | Cart</title>
-    <link rel="shortcut icon" href="../images/Well_Played.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -17,26 +16,59 @@
 
 <body>
     <div id="app" v-cloak>
-        {{ contadorCarrito }}
+        <header>
+            <div class="w-100 justify-content-start">
+                <img class="logoWell me-2" src="../images/Well_Played.png" alt="">
+            </div>
+            <nav class="navbar navbar-expand-lg text-center text-white d-flex w-100 justify-content-end">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon text-white"></span>
+                </button>
+                <div class="collapse navbar-collapse w-100 justify-content-end gap-5 me-5 align-items-center p-3"
+                    id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto ulNav align-items-end">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./products.html">
+                                All products
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./help.html">Help Center</a>
+                        </li>
+                        <button id="buttonSession">
+                            <a href="./logIn.html" class="logIn">{{buttonText}}</a>
+                        </button>
+                    </ul>
+            </nav>
+            <section class="banner">
+                <div class="content-banner">
+                </div>
+            </section>
+        </header>
         <main class="main-cart flex-grow-1 w-100">
             <section class="myCart">
-                <h1>Your cart - {{cantidadTotalProductos}} products</h1>
-                <button class="btn-cart btn-removeAll" @click="vaciarCarrito">remove all products <i
+                <h1>Your cart</h1>
+                <button class="btn-cart btn-removeAll" @click="emptyCart">remove all products <i
                         class="bi bi-trash3-fill"></i></button>
-                <!-- <template v-if="carrito.length > 0" v-for="producto in carrito"> -->
-                <section class="product-card">
-                    <img src="../images/headphones1.webp" class="img-product" alt="">
-                    <h4>Nombre del procuto</h4>
-                    <div class="btns-cart">
-                        <button class="btn-cart" @click="removeFromCart(producto.id)"><i
-                                class="bi bi-cart-dash"></i></button>
-                        <p class="fw-bold mt-4 fs-4">2</p>
-                        <button class="btn-cart" @click="addToCart(producto.id)"><i
-                                class="bi bi-cart-plus"></i></button>
-                    </div>
-                    <span class="price">$210.400</span>
-                </section>
-                <!-- </template> -->
+                <template v-if="localStorage.length > 0" v-for="(product,index) of localStorage">
+                    <section class="product-card">
+                        <img :src="product.photos" class="img-product" alt="">
+                        <h4 class="text-center p-2 w-50 me-2">{{product.name}}</h4>
+                        <div class="btns-cart">
+                            <button class="btn-cart" @click="removeOneItem(index)"><i
+                                    class="bi bi-cart-dash"></i></button>
+                            <p class="fw-bold mt-4 fs-4">{{product.qty}}</p>
+                            <button class="btn-cart" @click="plusItem(product)"><i class="bi bi-cart-plus"></i></button>
+                        </div>
+                        <span class="price">${{product.price * product.qty}}</span>
+                    </section>
+                </template>
+                <!-- {{changeStorage}} -->
             </section>
             <div class="container-payments-summary">
                 <section class="payments">
@@ -62,25 +94,57 @@
                     <h4 class="text-center mb-4">Summary of your purchase <i class="bi bi-1 bi-cart2"></i></h4>
                     <div class="finaly">
                         <p class="w-50 text-secondary fw-bold fs-6"><span>Subtotal</span></p>
-                        <p class="w-50 text-end text-secondary fw-bold fs-6"><span>$200.000</span></p>
+                        <p class="w-50 text-end text-secondary fw-bold fs-6"><span>$</span></p>
                     </div>
                     <div class="finaly">
                         <p class="w-50 text-secondary fw-bold fs-6"><span>IVA%</span></p>
-                        <p class="w-50 text-end text-secondary fw-bold fs-6"><span>$200.000</span></p>
+                        <p class="w-50 text-end text-secondary fw-bold fs-6"><span>$</span></p>
                     </div>
                     <div class="finaly">
                         <p class="w-50 fw-bold fs-4"><span>Total</span></p>
-                        <p class="w-50 text-end fw-bold fs-4"><span>$200.000</span></p>
+                        <p class="w-50 text-end fw-bold fs-4"><span>$</span></p>
                     </div>
-                    <button class="btn-finalize">FINALIZE PURCHASE</button>
+                    <a class="text-decoration-none" href="./checkout.html"><button class="btn-finalize">FINALIZE
+                            PURCHASE</button></a>
                 </section>
             </div>
         </main>
+        <footer class="footer w-100 mt-5">
+            <div class="row">
+                <div class="col-md-4 ms-5">
+                    <h3>Contact Us</h3>
+                    <p>If you have any questions or need assistance, feel free to reach out to us.</p>
+                </div>
+                <div class="col-md-4 ps-5">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="./products.html">Products</a></li>
+                        <li><a href="#">Help Center</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 followUs">
+                    <h3>Follow Us</h3>
+                    <ul class="social-icons">
+                        <li><a href="#"><i class="bi bi-facebook"></i></a></li>
+                        <li><a href="#"><i class="bi bi-twitter"></i></a></li>
+                        <li><a href="#"><i class="bi bi-instagram"></i></a></li>
+                    </ul>
+                </div>
+                <img class="logoWellFooter" src="../images/Well_Played.png" alt="">
+            </div>
+            <div class="footer-bottom pt-5">
+                <p>&copy; 2023 Gaming Store. All rights reserved.</p>
+            </div>
+        </footer>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="../scripts/cart.js"></script>
 </body>
 
