@@ -32,15 +32,15 @@
                         v-model="password" required>
                     <label class="password">Password</label>
                 </div>
-                <center>
+                <div class="text-center">
                     <a href="#" @click.prevent="login">
                         Log In
                         <span></span>
                     </a>
-                </center>
-                <center>
+                </div>
+                <div class="text-center">
                     <a href="" @click.prevent="toggleForm">Register</a>
-                </center>
+                </div>
             </form>
         </div>
         <div v-else class="login-box">
@@ -65,12 +65,12 @@
                         v-model="password" required>
                     <label name="passwordRegister">Password</label>
                 </div>
-                <center>
+                <div class="text-center">
                     <a href="#" @click.prevent="register">
                         Sig In
                         <span></span>
                     </a>
-                </center>
+                </div>
             </form>
         </div>
     </div>

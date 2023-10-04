@@ -464,3 +464,14 @@ h5 {
   font-size: 20px !important;
   font-family: var(--text-general);
 }
+
+/* nombre del usuario logueado */
+
+#userName {
+  padding: 20px;
+  background-image: radial-gradient(circle farthest-corner at 10% 20%, rgba(255, 94, 247, 1) 17.8%, rgba(2, 245, 255, 1) 100.2%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-align: center;
+}

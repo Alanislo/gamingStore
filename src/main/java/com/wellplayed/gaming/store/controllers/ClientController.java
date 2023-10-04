@@ -7,6 +7,7 @@ import com.wellplayed.gaming.store.services.clientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,6 +28,11 @@ public class ClientController {
     @GetMapping("/clients")
     public List<ClientDTO> getClients() {
         return clientRepository.findAll().stream().map(client -> new ClientDTO(client)).collect(Collectors.toList());
+    }
+
+    @GetMapping("/clients/current")
+    public ClientDTO getClient(Authentication authentication) {
+        return clientService.getClientDTO(authentication.getName());
     }
 
     @PostMapping("/clients/register")
@@ -56,6 +62,6 @@ public class ClientController {
         }
         Client newClient = new Client(firstName, lastName, email, passwordEncoder.encode(password));
         clientService.addClient(newClient);
-        return new ResponseEntity<>("User created successfully.",HttpStatus.CREATED);
+        return new ResponseEntity<>("User created successfully.", HttpStatus.CREATED);
     }
 }

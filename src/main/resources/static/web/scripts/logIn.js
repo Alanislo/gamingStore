@@ -21,14 +21,23 @@ const url = createApp({
         login() {
             axios.post('/api/login', "email=" + this.email + "&password=" + this.password)
                 .then(response => {
+                    console.error('Error:', response);
                     localStorage.setItem('isLoggedIn', true);
-                    if (this.email == "admin@gmail.com") {
-                        return window.location.href = "./admin/"
+                    if (this.email == "admin@admin.com") {
+                        return window.location.href = "/admin/blank.html"
                     } else {
                         return window.location.href = "../../index.html"
                     }
                 }).catch(error => {
-                    window.alert("The email or password is incorrect")
+                    console.log(error);
+                    Swal.fire({
+                        icon: 'error',
+                        text: "Incorrect email or password",
+                        confirmButtonText: 'OK',
+                        customClass: {
+                            popup: 'custom-alert',
+                        }
+                    });
                 })
         },
         register() {
@@ -39,8 +48,15 @@ const url = createApp({
                     this.login()
                 })
                 .catch(error => {
-                    console.log(error.response);
-                    window.alert(error.response.data)
+                    console.error('Error:', error);
+                    Swal.fire({
+                        icon: 'error',
+                        title: error.response.data,
+                        confirmButtonText: 'OK',
+                        customClass: {
+                            popup: 'custom-alert',
+                        }
+                    });
                 });
         }
     },
