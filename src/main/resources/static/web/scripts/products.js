@@ -38,7 +38,9 @@ createApp({
   created() {
     this.loadData()
     setInterval(this.changeButtonText, 2000);
-    this.localStorage = JSON.parse(localStorage.getItem("carritoProductos"));
+    this.localStorage = JSON.parse(localStorage.getItem("carritoProductos")) || [];
+    this.carrito = this.localStorage;
+    console.log(this.carrito);
   },
   methods: {
     showOverlay() {
@@ -63,57 +65,57 @@ createApp({
           this.productPrice = [...new Set(this.products.map((product) => product.price))];
           this.addRange(this.products);
         }).catch(error => console.log(error));
-  },
-  colorDropdown() {
-   this.showColors = !this.showColors;
-  },
-  priceDropdown() {
-   this.showPrice = !this.showPrice;
-  },
-  categoryDropdown() {
-   this.showCategory = !this.showCategory;
-  },
-  brandDropdown() {
-   this.showBrand = !this.showBrand;
-  },
-  showFilter() {
-    this.filterShow = !this.filterShow;
-  },
-  clearFilters() {
-  this.colors = [],
-  this.prices = [],
-  this.brands = [],
-  this.categories = []
-  },
-  addRange(products) {
-  for (product of products) {
-  if (product.price < 100) {
-  product.priceRange = "Under $100"
-  } else if (product.price >= 100 && product.price < 200) {
-    product.priceRange = "$100 - $200"
-  } else if (product.price >= 200 && product.price < 300) {
-  product.priceRange = "$200 - $300"
-  } else if (product.price >= 300) {
-  product.priceRange = "Over $300"
-  }
-  }
-  },
-  addCart(producto) {
-        this.cart++;
-        this.carrito.push(producto);
-        localStorage.setItem("carritoProductos", JSON.stringify(this.carrito));
-      },
+    },
+    colorDropdown() {
+      this.showColors = !this.showColors;
+    },
+    priceDropdown() {
+      this.showPrice = !this.showPrice;
+    },
+    categoryDropdown() {
+      this.showCategory = !this.showCategory;
+    },
+    brandDropdown() {
+      this.showBrand = !this.showBrand;
+    },
+    showFilter() {
+      this.filterShow = !this.filterShow;
+    },
+    clearFilters() {
+      this.colors = [],
+        this.prices = [],
+        this.brands = [],
+        this.categories = []
+    },
+    addRange(products) {
+      for (product of products) {
+        if (product.price < 100) {
+          product.priceRange = "Under $100"
+        } else if (product.price >= 100 && product.price < 200) {
+          product.priceRange = "$100 - $200"
+        } else if (product.price >= 200 && product.price < 300) {
+          product.priceRange = "$200 - $300"
+        } else if (product.price >= 300) {
+          product.priceRange = "Over $300"
+        }
+      }
+    },
+    addCart(producto) {
+      this.cart++;
+      this.carrito.push(producto);
+      localStorage.setItem("carritoProductos", JSON.stringify(this.carrito));
+    },
   },
   computed: {
-  priceRange() {
+    priceRange() {
 
-        this.priceRange = this.prices.map(range => range.min)
-  },
+      this.priceRange = this.prices.map(range => range.min)
+    },
 
     filter() {
-        this.priceMin = Math.min(...this.prices.map(range => range.min)) ;
-        this.priceMax = Math.max(...this.prices.map(range => range.max)) ;
-        this.productsFiltered = this.products.filter(
+      this.priceMin = Math.min(...this.prices.map(range => range.min));
+      this.priceMax = Math.max(...this.prices.map(range => range.max));
+      this.productsFiltered = this.products.filter(
         (product) =>
           (this.brands.includes(product.brand) || this.brands.length == 0) &&
           (this.categories.includes(product.category) || this.categories.length == 0) &&

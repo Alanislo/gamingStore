@@ -19,6 +19,7 @@ createApp({
         setInterval(this.changeButtonText, 2000);
         this.localStorage = JSON.parse(localStorage.getItem("carritoProductos"));
         this.localStorageQty = this.localStorage.length;
+        this.createProperty();
         console.log(this.localStorage);
     },
     methods: {
@@ -28,6 +29,13 @@ createApp({
                     this.products = response.data;
                 })
                 .catch((error) => console.log(error));
+        },
+        createProperty() {
+            this.localStorage.map((product) => {
+                if (product.qty <= 0 || product.qty == null) {
+                    product.qty = 1
+                }
+            })
         },
         emptyCart() {
             localStorage.clear("carritoProductos");

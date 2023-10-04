@@ -102,21 +102,21 @@ public class WellPlayedApplication {
 //            componentRepository.save(keyboardGamdia1);
 //            componentRepository.save(keyboardGamdia2);
 //            componentRepository.save(microphoneRode1);
-
+//
 //            Buy buyPrueba = new Buy(2,120.0);
 //            Buy buyPrueba2 = new Buy(4,240.0);
 //            Ticket ticketPrueba = new Ticket("2",120.0, LocalDateTime.now(), BuyType.DEBIT);
 //            Ticket ticketprueba2 = new Ticket("6775",240.0, LocalDateTime.now(), BuyType.CREDIT);
-
+//
 //            julianBrunelli.addTicket(ticketPrueba);
-//            ticketRepository.save(ticketPrueba);git
-
+//            ticketRepository.save(ticketPrueba);
+//
 //            ticketPrueba.addBuy(buyPrueba);
 //            buyRepository.save(buyPrueba);
 //
 //            mouseHyperX1.addBuy(buyPrueba);
 //            buyRepository.save(buyPrueba);
-
+//
 //            Client gabrielBarbera = new Client("GabrielBarbera@outlook.com", "1234", 20056784, 1925, "36 e/ 123 y 124", "115351458");
 //            clientRepository.save(gabrielBarbera);
 //
@@ -128,7 +128,7 @@ public class WellPlayedApplication {
 //
 //            mouseHyperX1.addBuy(buyPrueba2);
 //            buyRepository.save(buyPrueba2);
-
+//
 //            Client maximilianoLedesma = new Client("MaximilianoLedesma@outlook.com", "1234", 21056784, 1925, "36 e/ 123 y 124", "115351456");
 //            clientRepository.save(maximilianoLedesma);
 //
@@ -137,7 +137,6 @@ public class WellPlayedApplication {
 //
 //            Client darylBaptie = new Client("DarylBaptie@outlook.com", "1234", 35042684, 1925, "36 e/ 123 y 124", "114972353");
 //            clientRepository.save(darylBaptie);
-
         };
     }
 }
