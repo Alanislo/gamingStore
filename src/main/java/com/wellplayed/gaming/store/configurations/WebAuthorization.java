@@ -23,6 +23,7 @@ public class WebAuthorization {
                 .antMatchers(HttpMethod.GET, "/api/components").permitAll()
                 .antMatchers("/index.html","/web/style/**","/web/scripts/**","/web/images/**","/web/pages/**").permitAll()
                 .antMatchers("/api/ticket/build","/api/ticket/{id}").hasAuthority("CLIENT")
+                .antMatchers("/admin/**").hasAuthority("ADMIN")
                 .anyRequest().denyAll();
         http.formLogin()
                 .usernameParameter("email")
