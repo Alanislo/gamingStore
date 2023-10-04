@@ -127,7 +127,7 @@ public class WellPlayedApplication {
 //            mouseHyperX1.addBuy(buyPrueba);
 //            buyRepository.save(buyPrueba);
 //
-//            Client gabrielBarbera = new Client("GabrielBarbera@outlook.com", passwordEncoder.encode("1234"), 20056784, 1925, "36 e/ 123 y 124", "115351458");
+//            Client gabrielBarbera = new Client("gabriel.barberaa@gmail.com", passwordEncoder.encode("1234"), 20056784, 1925, "36 e/ 123 y 124", "1139145523");
 //            clientRepository.save(gabrielBarbera);
 //
 //            gabrielBarbera.addTicket(ticketprueba2);
