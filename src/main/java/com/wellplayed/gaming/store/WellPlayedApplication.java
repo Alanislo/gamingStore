@@ -25,6 +25,7 @@ public class WellPlayedApplication {
     @Bean
     public CommandLineRunner initData(ClientRepository clientRepository, ComponentRepository componentRepository, BuyRepository buyRepository, TicketRepository ticketRepository) {
         return args -> {
+/*
            Client julianBrunelli = new Client("JulianBrunelli@outlook.com", "1234", 43317950, 1925, "36 e/ 123 y 124", "2216178731");
             clientRepository.save(julianBrunelli);
          Component mouseHyperX1 = new Component("Mouse", "HyperX", "Pulsefire Core - RGB Gaming Mouse", "The HyperX Pulsefire Core delivers the essentials for gamers looking for a solid, comfortable, wired RGB gaming mouse. The Pixart 3327 optical sensor gives players precise, smooth tracking with no hardware acceleration, and has native DPI settings up to 6200 DPI. The ergonomically-designed Pulsefire Core has textured side grips for a comfortable, no-slip grip, and its symmetrical shape is suitable for both palm and claw grip.", Arrays.asList("Pixart 3327 optical sensor","6200 DPI / 220 IPS / 30G", "Customizable with HyperX NGENUITY software", "Weight: 87g"), Arrays.asList("Pink"), Arrays.asList("https://i.imgur.com/I6NjQxV.jpg", "https://i.imgur.com/hz9vCpq.jpg", "https://i.imgur.com/ePu6lxu.jpg", "https://i.imgur.com/7NTesn7.jpg", "https://i.imgur.com/kHj9IF3.jpg"), 29.99, 5);
@@ -144,6 +145,7 @@ public class WellPlayedApplication {
 
             Client darylBaptie = new Client("DarylBaptie@outlook.com", "1234", 35042684, 1925, "36 e/ 123 y 124", "114972353");
             clientRepository.save(darylBaptie);
+*/
 
 
         };

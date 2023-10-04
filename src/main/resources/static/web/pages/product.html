@@ -77,7 +77,9 @@
                         </ul>
                     </div>
                 </nav>
-                <h1 class="container-fluid text-left fw-bolder">Product</h1>
+                <template v-for="product of product">
+                <h1 class="container-fluid text-left fw-bolder">{{product.name}}</h1>
+                </template>
                 <div class="img-container">
                     <img src="../images/productOverview.jpg" alt="" class="w-100 imgProduct">
                 </div>
@@ -184,6 +186,7 @@
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
             crossorigin="anonymous"></script>
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="../scripts/product.js"></script>
     </div>
 </body>
