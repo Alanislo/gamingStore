@@ -40,7 +40,6 @@ createApp({
     setInterval(this.changeButtonText, 2000);
     this.localStorage = JSON.parse(localStorage.getItem("carritoProductos")) || [];
     this.carrito = this.localStorage;
-    console.log(this.carrito);
   },
   methods: {
     showOverlay() {
