@@ -19,6 +19,20 @@
 <body>
     <div id="app" v-cloak>
         <div class="header-section mb-5">
+            <a href="./cart.html">
+                <div class="container-icon">
+                    <div class="container-cart-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="icon-cart">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                        </svg>
+                        <div class="count-products">
+                            <span class="contador-productos">{{localStorageQty}}</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
             <header>
                 <div class="w-100 justify-content-start">
                     <img class="logoWell me-2" src="../images/Well_Played.png" alt="">
@@ -74,7 +88,7 @@
                             <button id="buttonSession">
                                 <a href="./logIn.html" class="logIn">{{buttonText}}</a>
                             </button>
-                    </ul>
+                        </ul>
                 </nav>
                 <section class="banner">
                     <div class="content-banner">
@@ -84,7 +98,7 @@
             </header>
         </div>
 
-        <div >
+        <div>
             <template v-cloak>{{filter}}</template>
             <main>
                 <div class="main-container d-flex flex-wrap flex-md-nowrap">
@@ -205,7 +219,7 @@
                         </div>
                         <hr>
                     </div>
-                    
+
                     <div class="products d-flex justify-content-center w-100 flex-wrap gap-2 ms-1">
                         <template v-if="productsFiltered.length == 0">
                             <h2 class="text-center">NO PRODUCTS FOUND</h2>
@@ -220,7 +234,6 @@
                                 <div class="card-body">
                                     <a v-bind:href="'./product.html?parameter='+product.id">
                                         <div class="outerDiv">
-
                                             <img v-bind:src="product.photos[0]" class="card-img-top productImg p-2"
                                                 alt="...">
                                         </div>
@@ -230,7 +243,10 @@
                                 <div
                                     class="d-flex card-footer flex-row align-items-center priceButtonDiv justify-content-evenly">
                                     <p class="paragraphPrice fw-bold ms-2">Price: ${{product.price}}</p>
-                                    <button class="button-categories me-1">
+                                    <template v-if="carrito.some((item) => item.id == product.id)">
+                                        <p>In cart</p>
+                                    </template>
+                                    <button v-else class="button-categories me-1" @click="addCart(product)">
                                         <span class="span-categories">Add to cart</span>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
@@ -243,6 +259,7 @@
                         </template>
                     </div>
                 </div>
+                <!-- {{changeStorage}} -->
             </main>
             <footer class="footer w-100 mt-5">
                 <div class="row">
@@ -284,6 +301,7 @@
             <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
             <script src="../scripts/products.js"></script>
+            <!-- <script src="../scripts/cart.js"></script> -->
         </div>
 </body>
 
