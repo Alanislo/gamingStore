@@ -62,73 +62,58 @@ createApp({
           this.productColorFinal = [...new Set(this.productColorReduced)].sort();
           this.productPrice = [...new Set(this.products.map((product) => product.price))];
           this.addRange(this.products);
-        })
-        .catch(error => console.log(error));
-    },
-    colorDropdown() {
-      this.showColors = !this.showColors;
-      console.log(this.showColors)
-    },
-    priceDropdown() {
-      this.showPrice = !this.showPrice;
-      console.log(this.showPrice)
-    },
-    categoryDropdown() {
-      this.showCategory = !this.showCategory;
-      console.log(this.showCategory)
-    },
-    brandDropdown() {
-      this.showBrand = !this.showBrand;
-      console.log(this.showBrand)
-    },
-    showFilter() {
-      this.filterShow = !this.filterShow;
-    },
-    clearFilters() {
-      this.colors = [],
-        this.prices = [],
-        this.brands = [],
-        this.categories = []
-    },
-    addRange(products) {
-      for (product of products) {
-        if (product.price < 100) {
-          product.priceRange = "Under $100"
-        } else if (product.price >= 100 && product.price < 200) {
-          product.priceRange = "$100 - $200"
-        } else if (product.price >= 200 && product.price < 300) {
-          product.priceRange = "$200 - $300"
-        } else if (product.price >= 300) {
-          product.priceRange = "Over $300"
-        }
-      }
-    },
-    addCart(producto) {
-      this.cart++;
-      this.carrito.push(producto);
-      localStorage.setItem("carritoProductos", JSON.stringify(this.carrito));
-    },
+        }).catch(error => console.log(error));
+  },
+  colorDropdown() {
+   this.showColors = !this.showColors;
+  },
+  priceDropdown() {
+   this.showPrice = !this.showPrice;
+  },
+  categoryDropdown() {
+   this.showCategory = !this.showCategory;
+  },
+  brandDropdown() {
+   this.showBrand = !this.showBrand;
+  },
+  showFilter() {
+    this.filterShow = !this.filterShow;
+  },
+  clearFilters() {
+  this.colors = [],
+  this.prices = [],
+  this.brands = [],
+  this.categories = []
+  },
+  addRange(products) {
+  for (product of products) {
+  if (product.price < 100) {
+  product.priceRange = "Under $100"
+  } else if (product.price >= 100 && product.price < 200) {
+    product.priceRange = "$100 - $200"
+  } else if (product.price >= 200 && product.price < 300) {
+  product.priceRange = "$200 - $300"
+  } else if (product.price >= 300) {
+  product.priceRange = "Over $300"
+  }
+  }
+  },
+  addCart(producto) {
+        this.cart++;
+        this.carrito.push(producto);
+        localStorage.setItem("carritoProductos", JSON.stringify(this.carrito));
+      },
   },
   computed: {
-    // changeStorage() {
-    //   window.addEventListener('storage', (event) => {
-    //     if (event.key === 'carritoProductos') {
-    //       this.carrito = JSON.parse(localStorage.getItem('carrito') ?? []);
-    //     }
-    //   })
-    // },
-    priceRange() {
-      this.priceRange = this.prices.map(range => range.min)
-    },
-    buttonText() {
-      return this.buttonTexts[this.currentIndex];
-    },
+  priceRange() {
+
+        this.priceRange = this.prices.map(range => range.min)
+  },
+
     filter() {
-      if (this.prices.length > 0) {
-        this.priceMin = Math.min(...this.prices.map(range => range.min));
-        this.priceMax = Math.max(...this.prices.map(range => range.max));
-      }
-      this.productsFiltered = this.products.filter(
+        this.priceMin = Math.min(...this.prices.map(range => range.min)) ;
+        this.priceMax = Math.max(...this.prices.map(range => range.max)) ;
+        this.productsFiltered = this.products.filter(
         (product) =>
           (this.brands.includes(product.brand) || this.brands.length == 0) &&
           (this.categories.includes(product.category) || this.categories.length == 0) &&

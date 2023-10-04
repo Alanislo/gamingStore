@@ -66,6 +66,22 @@
   border-radius: 3rem;
 }
 
+.card-footer {
+padding: 0.5rem 0rem !important;
+  background-color: white !important;
+  border-top: none !important;
+}
+
+.card-body > a {
+text-decoration: none !important;
+color: black !important;
+}
+
+
+.card {
+max-height: 24rem;
+}
+
 h1 {
   font-family: var(--text-title);
   font-weight: bold !important;
@@ -226,6 +242,7 @@ h5 {
 }
 
 .productImg {
+    height:13rem !important;
   transition: transform 0.8s;
   mix-blend-mode: multiply;
 }
@@ -239,7 +256,6 @@ h5 {
 .card:hover {
   background-color: #f8f9fa;
   cursor: pointer;
-
 }
 
 
@@ -251,10 +267,18 @@ h5 {
   margin-bottom: 0 !important;
 }
 
+#remainingUnitsWarning {
+position: absolute;
+z-index: 100;
+}
+
+.outerDiv {
+position: relative;
+}
 
 .button-categories {
   color: white;
-  background-color: var(--red-dark);
+  background-color: #a736d4;
   cursor: pointer;
   font-weight: 700;
   font-family: Helvetica, "sans-serif";
@@ -268,7 +292,7 @@ h5 {
 }
 
 .button-categories:hover {
-  background-color: var(--red-light);
+  background-color: #bb3eec !important;
   color: white;
 }
 
@@ -501,6 +525,8 @@ h5 {
     padding-bottom: 5rem;
 
   }
+
+
 
   #filterButton {
     position: fixed;

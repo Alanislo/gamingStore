@@ -98,67 +98,66 @@
             </header>
         </div>
         <main>
-            <div class="d-flex flex-column flex-md-row align-items-center mt-5" id="mainContainer">
-                <div
-                    class="d-flex mainPicContainer gap-3 flex-column col-12 col-md-6 align-items-center justify-content-center">
-                    <img id="featured" src="../images/headphones.webp" alt="" class="d-flex">
-                    <div id="slideWrapper" class="d-flex ms-3">
-                        <svg id="arrowLeft" class="arrow" role="button" xmlns="http://www.w3.org/2000/svg" height="3em"
-                            viewBox="0 0 448 512">
-                            <path
-                                d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" />
-                        </svg>
-                        <div id="slider">
-                            <img class="thumbnail active"
-                                src="https://cdn.shopify.com/s/files/1/0564/3612/9997/products/hyperx_cloud_alpha_wireless_1_main_large.jpg?v=1662449707"
-                                alt="">
-                            <img class="thumbnail" src="../images/headphones1.webp" alt="">
-                            <img class="thumbnail" src="../images/headphones2.webp" alt="">
-                            <img class="thumbnail" src="../images/headphones3.webp" alt="">
-                            <img class="thumbnail" src="../images/headphones4.webp" alt="">
-                            <img class="thumbnail" src="../images/headphones5.webp" alt="">
+            <div class=" container d-flex flex-column flex-md-row align-items-center mt-5" id="mainContainer">
+                <template v-for="product of product">
+                    <div class="d-flex mainPicContainer gap-3 flex-column col-12 col-md-6 align-items-center justify-content-center">
+                        <img id="featured" v-bind:src="product.photos[0]" v-model="mainPhoto" class="d-flex">
+                        <div id="slideWrapper" class="d-flex ms-3">
+                            <svg @click="moveLeft" id="arrowLeft" class="arrow" role="button" xmlns="http://www.w3.org/2000/svg" height="3em" viewBox="0 0 448 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+                            <div id="slider">
+                                <template v-for="photo of product.photos">
+                                    <img v-if="photo == mainPhoto" @click="changePhoto" class="thumbnail active" v-bind:src="photo">
+                                    <img v-else class="thumbnail" @click="changePhoto"  v-bind:src="photo">
+                                </template>
+                            </div>
+                            <svg @click="moveRight" id="arrowRight" class="arrow" role="button" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>
                         </div>
-                        <svg id="arrowRight" class="arrow" role="button" xmlns="http://www.w3.org/2000/svg" height="1em"
-                            viewBox="0 0 448 512">
-                            <path
-                                d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
-                        </svg>
                     </div>
-                </div>
-
-                <div class="descriptionContainer d-flex flex-column col-12 col-md-6 ">
-                    <h2 class="text-center">Cloud III - Gaming Headset</h2>
-                    <ul>
-                        <li><small>HyperX Signature Comfort and Durability</small></li>
-                        <li><small>Angled 53mm Drivers, Tuned for Impeccable Audio</small></li>
-                        <li><small>Crystal-Clear 10mm microphone, noise-cancelling, with LED mic-mute indicator</small>
-                        </li>
-                        <li><small>Multiplatform Compatible with 3.5mm, USB-C, and USB-A</small></li>
-                    </ul>
-                    <p class="ms-3">Price: $99.99</p>
-                    <p class="ms-3">Select Color:
-                        <label class="btn black checked me-2" id="colorBtn" for="option2">Black
-                            <input type="radio" v-model="color" class="btn-check colorBtn" name="options" id="option2"
-                                value="black" checked>
-                        </label>
-                        <label class="btn blackRed " for="option1">Black/Red
-                            <input type="radio" v-model="color" class="btn-check colorBtn " name="options" id="option1"
-                                value="black/Red">
-                        </label>
-                    </p>
-                    <div class="d-flex justify-content-start align-items-center">
-                        <button class="button-categories mt-3 ms-3 ">
-                            <span class="span-categories" @click="addCart(product)">Add to cart</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-arrow-right" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd"
-                                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
-                            </svg>
-                        </button>
+                    <div class="descriptionContainer d-flex flex-column col-12 col-md-6 ">
+                        <ul class="gap-2">
+                            <template v-for="snapshot of product.snapshot">
+                                <li><small>{{snapshot}}</small></li>
+                            </template>
+                        </ul>
+                        <p class="ms-3">Price: <span class="fw-bolder">${{product.price}}</span></p>
+                        <div class="d-flex ">
+                            <p class="ms-3">Select Color:
+                                <template v-for="color of product.colors">
+                                    <label class="btn me-1  buttonColor" v-bind:class="color" v-bind:for="product.color">{{color}}
+                                        <input type="radio" v-model="colorChosen" v-bind:class="color" name="options" v-bind:for="product.color" v-bind:value="color">
+                                    </label>
+                                </template>
+                            </p>
+                        </div>
+                        <div class="d-flex justify-content-start align-items-center">
+                            <button class="button-categories mt-3 ms-3 ">
+                                <span class="span-categories">Add to cart</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
-                </div>
+                </template>
             </div>
+            <section class="d-flex flex-column mt-5">
+                <h2 class="mb-1 text-center">Product Description</h2>
+                <div class="d-flex flex-column justify-content-center align-items-center flex-md-row mt-1">
+                    <div class="col-10 col-md-6 d-flex align-items-center justify-content-center">
+                        <template v-for="product of product">
+                            <p id="descriptionP">{{product.description}}</p>
+                        </template>
+                    </div>
+                    <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
+                        <template v-for="product of product">
+                            <img id="descriptionImage" v-bind:src="product.photos[1]" alt="" src="">
+                        </template>
+                    </div>
+                </div>
+            </section>
         </main>
+
+
         <footer class="footer w-100 mt-5">
             <div class="row">
                 <div class="col-md-4 ms-5">
