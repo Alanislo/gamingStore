@@ -159,6 +159,7 @@ h1 {
   max-width: 90rem;
   margin: 0 auto;
   padding: 25rem 0;
+  margin-left: 2rem;
 }
 
 .content-banner p {
@@ -417,6 +418,13 @@ h1 {
   width: calc(100% / 3);
 }
 
+.container-img-index {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .carousel img:first-child {
   margin-left: 0px;
 }
@@ -453,22 +461,6 @@ h1 {
   left: 75%;
   transform: translate(-50%, -50%);
   width: 50%;
-}
-
-.button-banner {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px 30px;
-  border: 0;
-  position: relative;
-  overflow: hidden;
-  border-radius: 10rem;
-  transition: all 0.02s;
-  font-weight: bold;
-  color: rgb(37, 37, 37);
-  z-index: 0;
-  box-shadow: 0 0px 7px -5px rgba(0, 0, 0, 0.5);
 }
 
 .button-banner:hover {
@@ -622,6 +614,10 @@ h1 {
 
 /*button categories*/
 .button-categories {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
   color: white;
   background-color: var(--red-dark);
   cursor: pointer;
@@ -631,8 +627,6 @@ h1 {
   padding: 10px 25px;
   border-radius: 3px;
   border: 1px solid transparent;
-  display: flex;
-  align-items: center;
   font-size: 15px;
 }
 
@@ -642,7 +636,6 @@ h1 {
 }
 
 .button-categories>svg {
-  width: 34px;
   margin-left: 10px;
   transition: transform .3s ease-in-out;
 }
@@ -897,11 +890,50 @@ h1 {
   display: none;
 }
 
+.product {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
 /* BTN CART */
+
+@media only screen and (min-width:1024px) {
+  .button-categories {
+    width: 15rem;
+  }
+
+  .headsets {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    gap: 1rem;
+  }
+
+  .container-img-index {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
 @media only screen and (min-width:767px) and (max-width:1023px) {
 
   * {
     font-size: 15px;
+  }
+
+  .container-img-index {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .contenedor {
@@ -920,17 +952,15 @@ h1 {
     width: 100%;
   }
 
-  .product {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    flex-direction: column;
-  }
-
   .headsets {
-    text-align: center;
-    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 4rem 0px;
+    width: 100%;
+    padding: 3rem;
+    gap: 1rem;
   }
 
   .img-container {
@@ -939,15 +969,14 @@ h1 {
   }
 
   .product-small-img {
-    display: flex;
     flex-direction: row !important;
-    width: 23% !important;
-    justify-content: center !important;
   }
 
   .button-categories {
-    margin-left: 30%;
-    position: relative;
+    width: 15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .imagen-text {
@@ -1019,17 +1048,6 @@ h1 {
     flex-direction: column;
   }
 
-  .headsets {
-    text-align: center;
-    width: 100% !important;
-  }
-
-  .button-categories {
-    position: relative;
-    left: 20%;
-    width: 40% !important;
-  }
-
   .button-categories2 {
     position: relative;
     left: 30%;
@@ -1038,7 +1056,7 @@ h1 {
 
   .headsets2 {
     text-align: center;
-    width: 90% !important;
+    width: 90%;
   }
 
   .headsets2 h2 {
@@ -1055,11 +1073,6 @@ h1 {
     flex-direction: row !important;
     width: 23% !important;
     justify-content: center !important;
-  }
-
-  .button-categories {
-    margin-left: 30%;
-    position: relative;
   }
 
   .imagen-text {
@@ -1129,6 +1142,22 @@ h1 {
   }
 }
 
+.button-banner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 30px;
+  border: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10rem;
+  transition: all 0.02s;
+  font-weight: bold;
+  color: rgb(37, 37, 37);
+  z-index: 0;
+  box-shadow: 0 0px 7px -5px rgba(0, 0, 0, 0.5);
+}
+
 .product {
   display: flex;
   justify-content: center;
@@ -1146,10 +1175,9 @@ h1 {
 }
 
 .product-small-img {
-  width: 10%;
+  width: 10rem;
   display: flex;
   flex-direction: column;
-
 }
 
 .img-container img {
@@ -1166,11 +1194,6 @@ h1 {
   flex-direction: column;
   justify-content: center;
   text-align: left;
-  width: 23%;
-}
-
-.headsets {
-  text-align: center;
   width: 23%;
 }
 

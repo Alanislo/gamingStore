@@ -11,13 +11,13 @@ createApp({
             carrito: [],
             cart: 0,
             localStorage: [],
-            localStorageQty: 0,
+            localStorageQty: 0
         }
     },
     created() {
         setInterval(this.changeButtonText, 2000);
-        this.localStorage = JSON.parse(localStorage.getItem("carritoProductos"));
-        this.localStorageQty = this.localStorage.length;
+        this.localStorage = JSON.parse(localStorage.getItem("carritoProductos")) || [];
+        this.carrito = this.localStorage;
     },
     computed: {
         buttonText() {
@@ -35,7 +35,6 @@ createApp({
             this.currentIndex = (this.currentIndex + 1) % this.buttonTexts.length;
         },
         addCart(producto) {
-            console.log(producto);
             this.cart++;
             this.carrito.push(producto);
             localStorage.setItem("carritoProductos", JSON.stringify(this.carrito));
