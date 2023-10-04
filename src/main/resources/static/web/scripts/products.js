@@ -29,12 +29,19 @@ createApp({
       ranges: [{ label: 'Under $100', min: 0, max: 99.99 }, { label: '$100 - $200', min: 100, max: 199.99 }, { label: '$200 - $300', min: 200, max: 299.99 }, { label: 'Over $300', min: 300, max: 1000000 }],
       priceMin: null,
       priceMax: null,
+      isLoggedIn: false,
     }
   },
   created() {
     console.log("hola 123");
     this.loadData()
     setInterval(this.changeButtonText, 2000);
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    if (isLoggedIn === "true") {
+      this.isLoggedIn = true;
+    } else {
+      this.isLoggedIn = false;
+    }
     console.log("hola 456");
 
     console.log("hola 789");
@@ -48,6 +55,17 @@ createApp({
     },
     changeButtonText() {
       this.currentIndex = (this.currentIndex + 1) % this.buttonTexts.length;
+    },
+    logout() {
+      axios.post(`/api/logout`)
+        .then(response => {
+          this.isLoggedIn = false;
+          localStorage.removeItem('isLoggedIn');
+          window.location.href = "../../index.html"
+        })
+        .catch(error => {
+          console.error('Error during logout:', error);
+        })
     },
     loadData() {
       axios.get("/api/components")

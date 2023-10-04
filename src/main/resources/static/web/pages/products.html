@@ -71,10 +71,17 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="./help.html">Help Center</a>
                             </li>
-                            <button id="buttonSession">
-                                <a href="./logIn.html" class="logIn">{{buttonText}}</a>
-                            </button>
-                    </ul>
+                            <div v-if="isLoggedIn">
+                                <button class="buttonSession">
+                                    <a href="#" @click.prevent="logout" class="logIn">Log Out</a>
+                                </button>
+                            </div>
+                            <div v-else>
+                                <button class="buttonSession">
+                                    <a href="./logIn.html" class="logIn">{{buttonText}}</a>
+                                </button>
+                        </ul>
+                        </ul>
                 </nav>
                 <section class="banner">
                     <div class="content-banner">
@@ -84,7 +91,7 @@
             </header>
         </div>
 
-        <div >
+        <div>
             <template v-cloak>{{filter}}</template>
             <main>
                 <div class="main-container d-flex flex-wrap flex-md-nowrap">
@@ -205,7 +212,7 @@
                         </div>
                         <hr>
                     </div>
-                    
+
                     <div class="products d-flex justify-content-center w-100 flex-wrap gap-2 ms-1">
                         <template v-if="productsFiltered.length == 0">
                             <h2 class="text-center">NO PRODUCTS FOUND</h2>

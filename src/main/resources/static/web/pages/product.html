@@ -71,9 +71,15 @@
                             <li class="nav-item">
                                 <a class="nav-link active" href="./help.html">Help Center</a>
                             </li>
-                            <button id="buttonSession">
-                                <a href="./logIn.html" class="logIn">{{buttonText}}</a>
-                            </button>
+                            <div v-if="isLoggedIn">
+                                <button class="buttonSession">
+                                    <a href="#" @click.prevent="logout" class="logIn">Log Out</a>
+                                </button>
+                            </div>
+                            <div v-else>
+                                <button class="buttonSession">
+                                    <a href="./logIn.html" class="logIn">{{buttonText}}</a>
+                                </button>
                         </ul>
                     </div>
                 </nav>
@@ -183,6 +189,7 @@
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
             crossorigin="anonymous"></script>
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="../scripts/product.js"></script>
     </div>
 </body>

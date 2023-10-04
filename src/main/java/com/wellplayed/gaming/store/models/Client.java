@@ -14,6 +14,8 @@ public class Client {
     private long id;
     private String email;
     private String password;
+    private String firstName;
+    private String lastName;
     private int dni;
     private int postalCode;
     private String address;
@@ -31,6 +33,13 @@ public class Client {
         this.postalCode = postalCode;
         this.address = address;
         this.phoneNumber = phoneNumber;
+    }
+
+    public Client(String firstName, String lastName, String email, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
     }
 
     public long getId() {

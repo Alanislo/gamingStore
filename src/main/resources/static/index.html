@@ -72,9 +72,15 @@
                             <li class="nav-item">
                                 <a class="nav-link " href="./web/pages/help.html">Help Center</a>
                             </li>
-                            <button id="buttonSession">
-                                <a href="./web/pages/logIn.html" class="logIn">{{buttonText}}</a>
-                            </button>
+                            <div v-if="isLoggedIn">
+                                <button class="buttonSession">
+                                    <a href="#" @click.prevent="logout" class="logIn">Log Out</a>
+                                </button>
+                            </div>
+                            <div v-else>
+                                <button class="buttonSession">
+                                    <a href="./web/pages/logIn.html" class="logIn">{{buttonText}}</a>
+                                </button>
                         </ul>
                     </div>
                 </nav>
