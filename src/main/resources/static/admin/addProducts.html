@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
@@ -13,7 +14,7 @@
     <link href="assets/css/custom.css" rel="stylesheet" />
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <link rel="shortcut icon" href="../assets/images/Well Played!.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../web/images/Well Played!.png" type="image/x-icon">
 </head>
 
 <body>
@@ -65,35 +66,9 @@
                     <li>
                         <a href="https://ads.google.com/intl/es-419_ar/home/"><i class="fa fa-edit "></i>Google Ads</a>
                     </li>
-                    <li>
-                        <a href="#"><i class="fa fa-sitemap "></i>Multi-Level Dropdown<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">Second Level Link</a>
-                            </li>
-                            <li>
-                                <a href="#">Second Level Link</a>
-                            </li>
-                            <li>
-                                <a href="#">Second Level Link<span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-
-                                </ul>
-
-                            </li>
-                        </ul>
-                    </li>
+                    
+                </ul>
             </div>
-
         </nav>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper">
@@ -103,92 +78,89 @@
                         <h2>Admin Dashboard</h2>
                     </div>
                     <div class="col-md-6">
-
                         <form class="form-horizontal">
                             <fieldset>
-
-                                <!-- Form Name -->
                                 <legend>Add Products</legend>
-
-                                <!-- Text input-->
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="category">Category</label>
                                     <div class="col-md-4">
                                         <input id="category" name="category" type="text" placeholder=""
-                                            class="form-control input-md" required="">
+                                            class="form-control input-md" required="" v-model="category">
 
                                     </div>
                                 </div>
-
-                                <!-- Text input-->
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label" for="brand">Brand</label>
-                                    <div class="col-md-4">
-                                        <input id="brand" name="brand" type="text" placeholder=""
-                                            class="form-control input-md" required="">
+                                        <label class="col-md-4 control-label" for="brand">Brand</label>
+                                        <div class="col-md-4">
+                                            <input id="brand" name="brand" type="text" placeholder=""
+                                                class="form-control input-md" required="" v-model="brand">
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="name">Name</label>
+                                        <div class="col-md-4">
+                                            <input id="name" name="name" type="text" placeholder=""
+                                                class="form-control input-md" required="" v-model="name">
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="description">Description</label>
+                                        <div class="col-md-4">
+                                            <input id="description" name="description" type="text" placeholder=""
+                                                class="form-control input-md" required="" v-model="description">
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="colors">Colors</label>
+                                        <div class="col-md-4">
+                                            <input id="colors" name="colors" type="text" placeholder=""
+                                                class="form-control input-md" required="" v-model="colors">
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="price">Price</label>
+                                        <div class="col-md-4">
+                                            <input id="price" name="price" type="text" placeholder=""
+                                                class="form-control input-md" required="" v-model="price">
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="stock">Stock</label>
+                                        <div class="col-md-4">
+                                            <input id="stock" name="stock" type="text" placeholder=""
+                                                class="form-control input-md" required="" v-model="stock">
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="stock">Snapshot</label>
+                                        <div class="col-md-4">
+                                            <input id="snapshot" name="snapshot" type="text" placeholder=""
+                                                class="form-control input-md" required="" v-model="snapshot">
+
+                                        </div>
+                                    </div>
+                                    <center>
+                                    <div>
+                                        <label for="photos">Select one or more images</label>
+                                        <input type="file" name="photos[]" id="photos" multiple
+                                            accept=".jpg, .jpeg, .png" v-model="photos">
+
+                                        <!-- Puedes utilizar el atributo 'accept' para limitar los tipos de archivos permitidos -->
 
                                     </div>
-                                </div>
-
-                                <!-- Text input-->
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label" for="name">Name</label>
-                                    <div class="col-md-4">
-                                        <input id="name" name="name" type="text" placeholder=""
-                                            class="form-control input-md" required="">
-
-                                    </div>
-                                </div>
-
-                                <!-- Text input-->
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label" for="description">Description</label>
-                                    <div class="col-md-4">
-                                        <input id="description" name="description" type="text" placeholder=""
-                                            class="form-control input-md" required="">
-
-                                    </div>
-                                </div>
-
-                                <!-- Text input-->
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label" for="colors">Colors</label>
-                                    <div class="col-md-4">
-                                        <input id="colors" name="colors" type="text" placeholder=""
-                                            class="form-control input-md" required="">
-
-                                    </div>
-                                </div>
-
-                                <!-- Text input-->
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label" for="price">Price</label>
-                                    <div class="col-md-4">
-                                        <input id="price" name="price" type="text" placeholder=""
-                                            class="form-control input-md" required="">
-
-                                    </div>
-                                </div>
-
-                                <!-- Text input-->
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label" for="stock">Stock</label>
-                                    <div class="col-md-4">
-                                        <input id="stock" name="stock" type="text" placeholder=""
-                                            class="form-control input-md" required="">
-
-                                    </div>
-                                </div>
-                                <div>
-                                    <label for="productos">Selecciona uno o varios productos:</label>
-                                    <input type="file" name="productos[]" id="productos" multiple
-                                        accept=".jpg, .jpeg, .png">
-
-                                    <!-- Puedes utilizar el atributo 'accept' para limitar los tipos de archivos permitidos -->
-
-                                    <input type="submit" value="Subir Productos">
-                                </div>
-
+                                    <button id="send" @click.prevent="alert" name="send"
+                                        class="buttonsi ps-4 pe-4 btn-primary">
+                                            <span>
+                                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"></path><path fill="currentColor" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"></path></svg> Create
+                                            </span>
+                                          </button></center>
+                                    
                             </fieldset>
                         </form>
 
@@ -200,7 +172,11 @@
 
             <!-- /. ROW  -->
         </div>
-
+        <footer>
+            <p>
+                <center>&copy; 2018. All rights reserved.</center>
+            </p>
+        </footer>
         <!-- /. WRAPPER  -->
         <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
         <!-- JQUERY SCRIPTS -->
@@ -210,8 +186,8 @@
         <!-- METISMENU SCRIPTS -->
         <script src="assets/js/jquery.metisMenu.js"></script>
         <!-- CUSTOM SCRIPTS -->
-        <script src="assets/js/custom.js"></script>
-
+        <script src="assets/js/addProducts.js"></script>
+    </div>
 
 </body>
 

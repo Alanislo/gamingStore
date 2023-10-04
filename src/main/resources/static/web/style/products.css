@@ -66,6 +66,22 @@
   border-radius: 3rem;
 }
 
+.card-footer {
+padding: 0.5rem 0rem !important;
+  background-color: white !important;
+  border-top: none !important;
+}
+
+.card-body > a {
+text-decoration: none !important;
+color: black !important;
+}
+
+
+.card {
+max-height: 24rem;
+}
+
 h1 {
   font-family: var(--text-title);
   font-weight: bold !important;
@@ -226,6 +242,7 @@ h5 {
 }
 
 .productImg {
+    height:13rem !important;
   transition: transform 0.8s;
   mix-blend-mode: multiply;
 }
@@ -239,7 +256,6 @@ h5 {
 .card:hover {
   background-color: #f8f9fa;
   cursor: pointer;
-
 }
 
 
@@ -251,10 +267,18 @@ h5 {
   margin-bottom: 0 !important;
 }
 
+#remainingUnitsWarning {
+position: absolute;
+z-index: 100;
+}
+
+.outerDiv {
+position: relative;
+}
 
 .button-categories {
   color: white;
-  background-color: var(--red-dark);
+  background-color: #a736d4;
   cursor: pointer;
   font-weight: 700;
   font-family: Helvetica, "sans-serif";
@@ -268,7 +292,7 @@ h5 {
 }
 
 .button-categories:hover {
-  background-color: var(--red-light);
+  background-color: #bb3eec !important;
   color: white;
 }
 
@@ -297,7 +321,192 @@ h5 {
   }
 }
 
+/* BTN CART */
 
+.icon-cart {
+  width: 50px;
+  height: 50px;
+  stroke: #000;
+}
+
+.icon-cart:hover {
+  cursor: pointer;
+}
+
+.container-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 34rem;
+  right: 4rem;
+  z-index: 1000;
+  background: linear-gradient(to right, rgb(238, 89, 238), pink);
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 35px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.container-icon:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.count-products {
+  position: absolute;
+  top: 55%;
+  right: 10%;
+  background-color: #000;
+  color: #ffffff;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.contador-productos {
+  font-size: 15px;
+}
+
+.container-cart-products {
+  position: absolute;
+  top: 50px;
+  right: 0;
+
+  background-color: #fff;
+  width: 400px;
+  z-index: 1;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
+  border-radius: 10px;
+
+}
+
+.cart-product {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.20);
+}
+
+.info-cart-product {
+  display: flex;
+  justify-content: space-between;
+  flex: 0.8;
+}
+
+.titulo-producto-carrito {
+  font-size: 20px;
+}
+
+.precio-producto-carrito {
+  font-weight: 700;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.cantidad-producto-carrito {
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.icon-close {
+  width: 25px;
+  height: 25px;
+}
+
+.icon-close:hover {
+  stroke: red;
+  cursor: pointer;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  gap: 20px;
+}
+
+.cart-total h3 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.total-pagar {
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.hidden-cart {
+  display: none;
+}
+
+.container-items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.item {
+  border-radius: 10px;
+}
+
+.item:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
+}
+
+.item img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+  transition: all .5s;
+}
+
+.item figure {
+  overflow: hidden;
+}
+
+.item:hover img {
+  transform: scale(1.2);
+}
+
+.info-product {
+  padding: 15px 30px;
+  line-height: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.info-product button {
+  border: none;
+  background: none;
+  background-color: #000;
+  color: #fff;
+  padding: 15px 10px;
+  cursor: pointer;
+}
+
+.cart-empty {
+  padding: 20px;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+/* BTN CART */
 
 @media only screen and (max-width: 767px) {
 
@@ -316,6 +525,8 @@ h5 {
     padding-bottom: 5rem;
 
   }
+
+
 
   #filterButton {
     position: fixed;
