@@ -116,8 +116,8 @@ body {
 }
 
 #buttonSession {
-    width: 145px;
-    height: 45px;
+    width: 165px;
+    height: 55px;
     cursor: pointer;
     color: #fff;
     font-size: 17px;
@@ -153,4 +153,8 @@ body {
 .logIn {
     font-size: 20px !important;
     font-family: var(--text-general);
+}
+
+.fs-6 {
+    font-size: 20px !important;
 }
