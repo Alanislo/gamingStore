@@ -51,19 +51,15 @@ createApp({
   },
   colorDropdown() {
    this.showColors = !this.showColors;
-   console.log(this.showColors)
   },
   priceDropdown() {
    this.showPrice = !this.showPrice;
-   console.log(this.showPrice)
   },
   categoryDropdown() {
    this.showCategory = !this.showCategory;
-   console.log(this.showCategory)
   },
   brandDropdown() {
    this.showBrand = !this.showBrand;
-   console.log(this.showBrand)
   },
   showFilter() {
     this.filterShow = !this.filterShow;
@@ -102,8 +98,6 @@ createApp({
     filter() {
         this.priceMin = Math.min(...this.prices.map(range => range.min)) ;
         this.priceMax = Math.max(...this.prices.map(range => range.max)) ;
-        console.log(this.priceMin);
-        console.log(this.priceMax);
         this.productsFiltered = this.products.filter(
         (product) =>
          (this.brands.includes(product.brand) || this.brands.length == 0) &&

@@ -66,6 +66,19 @@
   border-radius: 3rem;
 }
 
+.card-footer {
+padding: 0.5rem 0rem !important;
+}
+
+a {
+text-decoration: none !important;
+color: black;
+}
+
+.card {
+max-height: 24rem;
+}
+
 h1 {
   font-family: var(--text-title);
   font-weight: bold !important;
@@ -226,6 +239,7 @@ h5 {
 }
 
 .productImg {
+    height:13rem !important;
   transition: transform 0.8s;
   mix-blend-mode: multiply;
 }
