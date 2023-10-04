@@ -30,8 +30,7 @@ const url = createApp({
             axios.get('/api/clients/current')
                 .then(response => {
                     this.client = response.data
-                    this.firstName = this.client.firstName
-                    this.lastName = this.client.lastName
+                    console.log(this.client);
                 })
                 .catch(error => console.error('Error:', error));
         },
