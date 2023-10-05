@@ -47,6 +47,7 @@ nav a:hover {
 }
 
 .active {
+  text-decoration: underline !important;
   border-radius: 100px !important;
   font-weight: bolder !important;
 }
@@ -156,7 +157,7 @@ h1 {
 }
 
 .content-banner {
-  width: 100%;
+  width: 50%;
   margin: 0 auto;
   padding: 25rem 0;
   position: absolute;

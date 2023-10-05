@@ -55,6 +55,7 @@ nav a:hover {
 }
 
 .active {
+    text-decoration: underline !important;
     border-radius: 100px !important;
     font-weight: bolder !important;
 }
