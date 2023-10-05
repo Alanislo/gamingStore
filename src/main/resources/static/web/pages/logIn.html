@@ -16,56 +16,64 @@
 
 <body>
     <div id="app">
-        <button id="buttonSession" class="m-4"><a class="text-decoration-none text-white" href="../../index.html"> <i
-                    class="bi bi-arrow-left-short"></i> Back
+        <button id="buttonSession" class="m-4"><a class="text-decoration-none text-white fs-6" href="../../index.html">
+                <i class="bi bi-arrow-left-short"></i> Back
                 to home
             </a></button>
         <div v-if="registerOn" class="login-box">
             <form>
                 <div class="user-box">
-                    <input type="text" name="" required="">
-                    <label>Email</label>
+                    <input type="text" autocomplete="on" placeholder="Email" class="input2" type="email" id="email"
+                        v-model="email" required>
+                    <label name="email">Email</label>
                 </div>
                 <div class="user-box">
-                    <input type="password" name="" required="">
-                    <label>Password</label>
+                    <input required="" placeholder="Password" class="input2" type="password" id="password"
+                        v-model="password" required>
+                    <label class="password">Password</label>
                 </div>
-                <center>
-                    <a href="#">
+                <div class="text-center">
+                    <a href="#" @click.prevent="login">
                         Log In
                         <span></span>
                     </a>
-                </center>
-                <center>
+                </div>
+                <div class="text-center">
                     <a href="" @click.prevent="toggleForm">Register</a>
-                </center>
+                </div>
             </form>
         </div>
         <div v-else class="login-box">
             <form>
                 <div class="user-box">
-                    <input type="text" name="" required="">
-                    <label>First Name</label>
+                    <input class="input2" type="text" placeholder="Firstname" v-model="firstName" id="firstName"
+                        required>
+                    <label name="firstName">First Name</label>
                 </div>
                 <div class="user-box">
-                    <input type="text" name="" required="">
-                    <label>Last Name</label>
+                    <input class="input2" type="text" placeholder="Lastname" v-model="lastName" id="lastName" required>
+                    <label name="lastName">Last Name</label>
                 </div>
 
                 <div class="user-box">
-                    <input type="text" name="" required="">
-                    <label>Email</label>
+                    <input autocomplete="on" placeholder="Email" class="input2" type="email" id="emailRegister"
+                        v-model="email" required>
+                    <label name="emailRegister">Email</label>
                 </div>
                 <div class="user-box">
-                    <input type="password" name="" required="">
-                    <label>Password</label>
+                    <input placeholder="Password" class="input2" type="password" id="passwordRegister"
+                        v-model="password" required>
+                    <label name="passwordRegister">Password</label>
                 </div>
-                <center>
-                    <a href="#">
+                <div class="text-center">
+                    <a href="#" @click.prevent="register">
                         Sig In
                         <span></span>
                     </a>
-                </center>
+                </div>
+                <div class="text-center">
+                    <a href="" @click.prevent="toggleForm"><i class="bi bi-arrow-left fs-5"></i> Back</a>
+                </div>
             </form>
         </div>
     </div>

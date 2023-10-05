@@ -3,24 +3,35 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            isOverlayVisible: false,
+            buttonTexts: ['Log In', 'Register'],
+            currentIndex: 0,
+            isLoggedIn: false,
+            client: [],
             products: [],
             productQty: [],
             localStorage: [],
-            buttonTexts: ['Log In', 'Register'],
             localStorageQty: 0,
-            totalProduct: 0,
-            subtotalProduct: 0,
+            carrito: [],
+            subtotalPrice: 0,
             total: 0,
-            iva: 0
+            iva: 1.21
         };
     },
     created() {
         this.loadData();
+        this.loadData2();
         setInterval(this.changeButtonText, 2000);
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        if (isLoggedIn === "true") {
+            this.isLoggedIn = true;
+        } else {
+            this.isLoggedIn = false;
+        }
         this.localStorage = JSON.parse(localStorage.getItem("carritoProductos")) ?? [];
         this.localStorageQty = this.localStorage.length;
+        this.carrito = this.localStorage;
         this.createProperty();
-        console.log(this.localStorage);
     },
     methods: {
         loadData() {
@@ -29,6 +40,16 @@ createApp({
                     this.products = response.data;
                 })
                 .catch((error) => console.log(error));
+        },
+        loadData2() {
+            axios.get('/api/client/authenticate')
+                .then(response => {
+                    console.log(response);
+                    if (response.status == 200) {
+                        this.isLoggedIn = true;
+                    }
+                })
+                .catch(error => console.error('Error:', error));
         },
         createProperty() {
             this.localStorage.map((product) => {
@@ -41,11 +62,13 @@ createApp({
             localStorage.clear("carritoProductos");
             this.localStorage = [];
             this.localStorageQty = 0;
+            this.carrito = [];
         },
         removeOneItem(index) {
             const item = this.localStorage[index];
             if (item.qty > 1) {
                 item.qty--;
+                localStorage.setItem("carritoProductos", JSON.stringify(this.localStorage));
             } else if (item.qty == 1) {
                 this.localStorage.splice(index, 1);
                 localStorage.setItem("carritoProductos", JSON.stringify(this.localStorage));
@@ -60,15 +83,63 @@ createApp({
             }
             localStorage.setItem("carritoProductos", JSON.stringify(this.localStorage));
         },
+        showOverlay() {
+            this.isOverlayVisible = true;
+        },
+        hideOverlay() {
+            this.isOverlayVisible = false;
+        },
+        changeButtonText() {
+            this.currentIndex = (this.currentIndex + 1) % this.buttonTexts.length;
+        },
+        logout() {
+            Swal.fire({
+                title: 'Do you want to log out of your account?',
+                inputAttributes: {
+                    autocapitalize: 'off',
+                },
+                showCancelButton: true,
+                confirmButtonText: 'Sure',
+                showLoaderOnConfirm: true,
+                preConfirm: (login) => {
+                    axios.post("/api/logout")
+                        .then(response => {
+                            this.isLoggedIn = false;
+                            localStorage.removeItem('isLoggedIn');
+                            Swal.fire({
+                                icon: 'succes',
+                                title: response.data,
+                                text: 'You have successfully logged out',
+                                customClass: {
+                                    popup: 'custom-alert',
+                                }
+                            });
+                            setTimeout(() => {
+                                window.location.href = "../../index.html"
+                            }, 2000);
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            Swal.fire({
+                                icon: 'error',
+                                title: error.response.data,
+                                confirmButtonText: 'OK',
+                                customClass: {
+                                    popup: 'custom-alert',
+                                }
+                            });
+                        })
+                },
+                allowOutsideClick: () => !Swal.isLoading(),
+            })
+        }
     },
     computed: {
         subTotalCombined() {
-            this.localStorage.reduce((total, articulo) => total + articulo.price * articulo.qty, 0);
+            this.subtotalPrice = this.carrito.reduce((total, articulo) => total + (articulo.price * articulo.qty), 0);
         },
-        total() {
-            for (let product of this.localStorage) {
-                product.total = product.disponibles * product.precio;
-            }
+        totalClaculated() {
+            this.total = this.subtotalPrice * this.iva
         },
         buttonText() {
             return this.buttonTexts[this.currentIndex];

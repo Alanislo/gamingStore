@@ -10,13 +10,9 @@ public class ComponentDTO {
     private String brand;
     private String name;
     private String description;
-
     private List<String> snapshot;
-
     private List<String> colors;
-
     private List<String> photos;
-
     private double price;
     private int stock;
 
@@ -76,6 +72,4 @@ public class ComponentDTO {
     public int getStock() {
         return stock;
     }
-
-
 }

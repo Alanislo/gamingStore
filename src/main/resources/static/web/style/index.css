@@ -150,16 +150,18 @@ h1 {
 
 .banner {
   background-image: linear-gradient(100deg, #000000, #00000020), url(../images/iCUE_MURALS_ENVIRONMENTAL_RENDER_01.png);
-  height: 50rem;
+  height: 41rem;
   background-size: cover;
   background-position: center;
 }
 
 .content-banner {
-  max-width: 90rem;
+  width: 100%;
   margin: 0 auto;
   padding: 25rem 0;
-  margin-left: 2rem;
+  position: absolute;
+  top: -6rem;
+  left: 0.6rem;
 }
 
 .content-banner p {
@@ -355,7 +357,7 @@ h1 {
 
 .wrapper {
   display: flex;
-  max-width: 95vw;
+  max-width: 1200px;
   position: relative;
   background-color: #f5f6f7 !important;
   margin-top: 3rem;
@@ -418,13 +420,6 @@ h1 {
   width: calc(100% / 3);
 }
 
-.container-img-index {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .carousel img:first-child {
   margin-left: 0px;
 }
@@ -461,6 +456,22 @@ h1 {
   left: 75%;
   transform: translate(-50%, -50%);
   width: 50%;
+}
+
+.button-banner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 30px;
+  border: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10rem;
+  transition: all 0.02s;
+  font-weight: bold;
+  color: rgb(37, 37, 37);
+  z-index: 0;
+  box-shadow: 0 0px 7px -5px rgba(0, 0, 0, 0.5);
 }
 
 .button-banner:hover {
@@ -614,12 +625,9 @@ h1 {
 
 /*button categories*/
 .button-categories {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+  margin-left: 2rem;
   color: white;
-  background-color: var(--red-dark);
+  background-color: #a736d4;
   cursor: pointer;
   font-weight: 700;
   font-family: Helvetica, "sans-serif";
@@ -627,15 +635,18 @@ h1 {
   padding: 10px 25px;
   border-radius: 3px;
   border: 1px solid transparent;
+  display: flex;
+  align-items: center;
   font-size: 15px;
 }
 
 .button-categories:hover {
-  background-color: var(--red-light);
+  background-color: #cc00ff;
   color: white;
 }
 
 .button-categories>svg {
+  width: 34px;
   margin-left: 10px;
   transition: transform .3s ease-in-out;
 }
@@ -662,7 +673,7 @@ h1 {
 .button-categories2 {
   width: 50%;
   color: white;
-  background-color: var(--red-dark);
+  background-color: #a736d4;
   cursor: pointer;
   font-weight: 700;
   font-family: Helvetica, "sans-serif";
@@ -676,7 +687,7 @@ h1 {
 }
 
 .button-categories2:hover {
-  background-color: var(--red-light);
+  background-color: #cc00ff;
   color: white;
 }
 
@@ -722,7 +733,7 @@ h1 {
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 34rem;
+  top: 32rem;
   right: 4rem;
   z-index: 1000;
   background: linear-gradient(to right, rgb(238, 89, 238), pink);
@@ -890,35 +901,10 @@ h1 {
   display: none;
 }
 
-.product {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  flex-direction: column;
-  width: 100%;
-}
-
 /* BTN CART */
-
-@media only screen and (min-width:1024px) {
-  .button-categories {
-    width: 15rem;
-  }
-
-  .headsets {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 3rem;
-    gap: 1rem;
-  }
-
-  .container-img-index {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+@media only screen and (min-width: 1024px) {
+  .content-banner {
+    left: 3rem !important;
   }
 }
 
@@ -926,14 +912,6 @@ h1 {
 
   * {
     font-size: 15px;
-  }
-
-  .container-img-index {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
 
   .contenedor {
@@ -952,15 +930,18 @@ h1 {
     width: 100%;
   }
 
-  .headsets {
+  .product {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    margin: 4rem 0px;
     width: 100%;
-    padding: 3rem;
-    gap: 1rem;
+    flex-direction: column;
+  }
+
+  .headsets {
+    padding: 1rem;
+    text-align: center;
+    width: 100% !important;
   }
 
   .img-container {
@@ -968,15 +949,18 @@ h1 {
     justify-content: center;
   }
 
+
   .product-small-img {
+    display: flex;
     flex-direction: row !important;
+    width: 23% !important;
+    justify-content: center !important;
   }
 
   .button-categories {
-    width: 15rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* margin-left: 30%; */
+    left: 33%;
+    position: relative;
   }
 
   .imagen-text {
@@ -1048,6 +1032,17 @@ h1 {
     flex-direction: column;
   }
 
+  .headsets {
+    text-align: center;
+    width: 100% !important;
+  }
+
+  .button-categories {
+    left: 24%;
+    /* margin-left: 30%; */
+    position: relative;
+  }
+
   .button-categories2 {
     position: relative;
     left: 30%;
@@ -1056,7 +1051,7 @@ h1 {
 
   .headsets2 {
     text-align: center;
-    width: 90%;
+    width: 90% !important;
   }
 
   .headsets2 h2 {
@@ -1075,6 +1070,11 @@ h1 {
     justify-content: center !important;
   }
 
+  .button-categories {
+    margin-left: 30%;
+    position: relative;
+  }
+
   .imagen-text {
     width: 90% !important;
   }
@@ -1089,7 +1089,7 @@ h1 {
   }
 
   .img-container img {
-    height: 20rem;
+    height: 18rem !important;
     /* width: 100%; */
     object-fit: cover;
   }
@@ -1136,26 +1136,17 @@ h1 {
     padding: 1rem;
   }
 
+  .logoWellFooter {
+    width: 4rem !important;
+    position: relative;
+    left: 40% !important;
+  }
+
   .followUs {
     width: 50%;
     position: relative;
+    margin-left: 2rem;
   }
-}
-
-.button-banner {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px 30px;
-  border: 0;
-  position: relative;
-  overflow: hidden;
-  border-radius: 10rem;
-  transition: all 0.02s;
-  font-weight: bold;
-  color: rgb(37, 37, 37);
-  z-index: 0;
-  box-shadow: 0 0px 7px -5px rgba(0, 0, 0, 0.5);
 }
 
 .product {
@@ -1175,9 +1166,10 @@ h1 {
 }
 
 .product-small-img {
-  width: 10rem;
+  width: 10%;
   display: flex;
   flex-direction: column;
+
 }
 
 .img-container img {
@@ -1194,7 +1186,17 @@ h1 {
   flex-direction: column;
   justify-content: center;
   text-align: left;
-  width: 23%;
+  width: 26%;
+  align-items: center;
+}
+
+.headsets {
+  text-align: center;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .headsets h2 {
@@ -1225,6 +1227,8 @@ h1 {
 
 .text {
   font-size: 16px;
+  text-align: center;
+  padding: .5rem;
 }
 
 /*imagenes galeria*/
@@ -1243,9 +1247,6 @@ h1 {
   max-width: 400px;
   padding: 1rem;
 } */
-
-/* 
-footer  */
 
 .footer {
   background-color: black;
@@ -1303,8 +1304,7 @@ footer  */
 
 .logoWellFooter {
   width: 14rem !important;
-  position: relative;
-  left: 20%;
+  left: 85%;
 }
 
 .followUs {
@@ -1323,9 +1323,11 @@ footer  */
   font-size: 0.8rem;
 }
 
+
+
 /* boton de inicio de sesion  */
 
-#buttonSession {
+.buttonSession {
   width: 145px;
   height: 45px;
   cursor: pointer;
@@ -1338,7 +1340,7 @@ footer  */
   transition: 0.1s;
 }
 
-#buttonSession::after {
+.buttonSession::after {
   content: '';
   width: 100%;
   height: 100%;
@@ -1350,10 +1352,14 @@ footer  */
   top: 0;
 }
 
-#buttonSession:active {
+.buttonSession:active {
   transform: scale(0.9) rotate(3deg);
   background: radial-gradient(circle farthest-corner at 10% 20%, rgba(255, 94, 247, 1) 17.8%, rgba(2, 245, 255, 1) 100.2%);
   transition: 0.5s;
+}
+
+.historyMap {
+  font-family: var(--text-title);
 }
 
 .logIn {

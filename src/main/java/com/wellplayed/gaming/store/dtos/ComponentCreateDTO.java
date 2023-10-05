@@ -10,13 +10,9 @@ public class ComponentCreateDTO {
     private String brand;
     private String name;
     private String description;
-
     private List<String> snapshot;
-
     private List<String> colors;
-
     private List<String> photos;
-
     private double price;
     private int stock;
 

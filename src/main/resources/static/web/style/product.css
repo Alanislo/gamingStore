@@ -95,6 +95,7 @@ h1 {
   text-transform: uppercase;
 }
 
+
 .header-section h1 {
   position: absolute;
   left: 3%;
@@ -114,6 +115,11 @@ h1 {
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 65px;
+}
+
+.title-product {
+  font-family: var(--text-title);
+  font-size: 1rem;
 }
 
 .img-container {
@@ -154,9 +160,62 @@ h1 {
   height: 52rem;
 }
 
-h1 {
-  font-family: var(--text-title);
+/*prueba*/
+.banner {
+  background-image: linear-gradient(100deg, #00000091, #00000020), url(../images/component-alone.png);
+  height: 42rem;
+  background-size: cover;
+  background-position: center;
 }
+
+.content-banner {
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 25rem 0;
+}
+
+.content-banner p {
+  color: whitesmoke;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.content-banner h2 {
+  color: #fff;
+  font-size: 3.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.content-banner a {
+  margin-top: 2rem;
+  text-decoration: none;
+  color: #fff;
+  background-color: var(--primary-color);
+  display: inline-block;
+  padding: 1rem 3rem;
+  text-transform: uppercase;
+  border-radius: 3rem;
+}
+
+.card-footer {
+  padding: 0.5rem 0rem !important;
+  background-color: white !important;
+  border-top: none !important;
+}
+
+.card-body>a {
+  text-decoration: none !important;
+  color: black !important;
+}
+
+
+.card {
+  max-height: 24rem;
+}
+
+/* nav */
 
 .headerPicture {
   height: 25rem;
@@ -177,14 +236,16 @@ h1 {
 .mainContainer {
   background-color: #f8f9fa;
   height: 100vh;
-
 }
 
+.container {
+  gap: 2rem;
+}
 
 #featured {
-height: 25rem;
-width: 25rem;
-cursor: pointer;
+  height: 25rem;
+  width: 25rem;
+  cursor: pointer;
 }
 
 .thumbnail {
@@ -234,13 +295,13 @@ cursor: pointer;
 }
 
 colorP {
-margin-top: 0 !important;
-margin-bottom: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 #descriptionImage {
-height: 30rem;
-width: 30rem;
+  height: 30rem;
+  width: 30rem;
 }
 
 .blackRed {
@@ -250,7 +311,7 @@ width: 30rem;
 }
 
 .buttonColor {
-border: 1px solid purple;
+  border: 1px solid purple;
 }
 
 .black {
@@ -261,39 +322,39 @@ border: 1px solid purple;
 
 
 .Black-Blue {
-background: linear-gradient(90deg, rgba(0,0,0,1) 39%, rgba(0,54,255,1) 55%);
-color: white !important;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 1) 39%, rgba(0, 54, 255, 1) 55%);
+  color: white !important;
 }
 
 
 .Black-Gold {
-background: rgb(0,0,0);
-background: linear-gradient(90deg, rgba(0,0,0,1) 39%, rgba(255,215,0,1) 55%) !important;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 1) 39%, rgba(255, 215, 0, 1) 55%) !important;
 }
 
 .Black-Grey {
-background: linear-gradient(90deg, rgba(0,0,0,1) 39%, rgba(128,128,128,1) 55%) !important;
-color: white !important;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 1) 39%, rgba(128, 128, 128, 1) 55%) !important;
+  color: white !important;
 }
 
 .Blue-White {
-background: linear-gradient(90deg, rgba(0,0,255,1) 39%, rgba(255,255,255,1) 55%);
+  background: linear-gradient(90deg, rgba(0, 0, 255, 1) 39%, rgba(255, 255, 255, 1) 55%);
 }
 
 .Green-White {
-background: linear-gradient(90deg, rgba(0,255,0,1) 39%, rgba(255,255,255,1) 55%);
+  background: linear-gradient(90deg, rgba(0, 255, 0, 1) 39%, rgba(255, 255, 255, 1) 55%);
 }
 
 .Pink {
-background-color: #FFC0CB;
+  background-color: #FFC0CB;
 }
 
 .Silver {
-background-color: #bfbfbf;
+  background-color: #bfbfbf;
 }
 
 .White {
-background-color: #FFFFFF;
+  background-color: #FFFFFF;
 }
 
 
@@ -301,7 +362,7 @@ background-color: #FFFFFF;
 
 .button-categories {
   color: white;
-  background-color: var(--red-dark);
+  background-color: #a736d4;
   cursor: pointer;
   font-weight: 700;
   font-family: Helvetica, "sans-serif";
@@ -315,7 +376,7 @@ background-color: #FFFFFF;
 }
 
 .button-categories:hover {
-  background-color: var(--red-light);
+  background-color: rgb(13, 194, 13);
   color: white;
 }
 
@@ -361,7 +422,7 @@ background-color: #FFFFFF;
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 34rem;
+  top: 32rem;
   right: 4rem;
   z-index: 1000;
   background: linear-gradient(to right, rgb(238, 89, 238), pink);
@@ -530,16 +591,24 @@ background-color: #FFFFFF;
 }
 
 /* BTN CART */
+
+.btn-add-cart {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
 @media only screen and (max-width: 767px) {
   #featured {
     height: 15rem;
     width: 15rem;
-    margin-bottom:3rem;
+    margin-bottom: 3rem;
   }
 
   #descriptionImage {
-  height: 20rem;
-  width: 20rem;
+    height: 20rem;
+    width: 20rem;
   }
 
   #slideWrapper {
@@ -558,7 +627,8 @@ background-color: #FFFFFF;
 
   .descriptionContainer {
     margin-top: 3rem;
-    margin-bottom: 2rem;
+    margin-bottom: 5rem;
+    gap: 1rem;
   }
 
 }
@@ -605,7 +675,6 @@ background-color: #FFFFFF;
 }
 
 /* footer  */
-
 
 .footer {
   background-color: black;
@@ -662,7 +731,8 @@ background-color: #FFFFFF;
 }
 
 .logoWellFooter {
-  width: 14rem;
+  width: 14rem !important;
+  left: 85%;
 }
 
 .followUs {
@@ -682,8 +752,7 @@ background-color: #FFFFFF;
 }
 
 /* boton de inicio de sesion  */
-
-#buttonSession {
+.buttonSession {
   width: 145px;
   height: 45px;
   cursor: pointer;
@@ -696,7 +765,7 @@ background-color: #FFFFFF;
   transition: 0.1s;
 }
 
-#buttonSession::after {
+.buttonSession::after {
   content: '';
   width: 100%;
   height: 100%;
@@ -708,10 +777,14 @@ background-color: #FFFFFF;
   top: 0;
 }
 
-#buttonSession:active {
+.buttonSession:active {
   transform: scale(0.9) rotate(3deg);
   background: radial-gradient(circle farthest-corner at 10% 20%, rgba(255, 94, 247, 1) 17.8%, rgba(2, 245, 255, 1) 100.2%);
   transition: 0.5s;
+}
+
+.historyMap {
+  font-family: var(--text-title);
 }
 
 .logIn {
@@ -721,8 +794,9 @@ background-color: #FFFFFF;
 
 
 @media only screen and (min-width: 767px) {
-#descriptionP {
-width: 75% !important;
-}
+  #descriptionP {
+    width: 75% !important;
+    text-align: justify;
+  }
 
 }

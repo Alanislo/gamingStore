@@ -15,9 +15,17 @@ createApp({
         }
     },
     created() {
+        this.loadData();
+        this.loadData2();
         setInterval(this.changeButtonText, 2000);
         this.localStorage = JSON.parse(localStorage.getItem("carritoProductos")) || [];
         this.carrito = this.localStorage;
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        if (isLoggedIn === "true") {
+            this.isLoggedIn = true;
+        } else {
+            this.isLoggedIn = false;
+        }
     },
     computed: {
         buttonText() {
@@ -25,6 +33,13 @@ createApp({
         },
     },
     methods: {
+        loadData() {
+            axios.get('/api/clients/current')
+                .then(response => {
+                    this.client = response.data
+                })
+                .catch(error => console.error('Error:', error));
+        },
         showOverlay() {
             this.isOverlayVisible = true;
         },
@@ -39,6 +54,57 @@ createApp({
             this.carrito.push(producto);
             localStorage.setItem("carritoProductos", JSON.stringify(this.carrito));
         },
+        loadData2() {
+            axios.get('/api/client/authenticate')
+                .then(response => {
+                    console.log(response);
+                    if (response.status == 200) {
+                        this.isLoggedIn = true;
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        },
+        logout() {
+            Swal.fire({
+                title: 'Do you want to log out of your account?',
+                inputAttributes: {
+                    autocapitalize: 'off',
+                },
+                showCancelButton: true,
+                confirmButtonText: 'Sure',
+                showLoaderOnConfirm: true,
+                preConfirm: (login) => {
+                    axios.post(`/api/logout`)
+                        .then(response => {
+                            this.isLoggedIn = false;
+                            localStorage.removeItem('isLoggedIn');
+                            Swal.fire({
+                                icon: 'succes',
+                                title: response.data,
+                                text: `You have successfully logged out.`,
+                                customClass: {
+                                    popup: 'custom-alert',
+                                }
+                            });
+                            setTimeout(() => {
+                                window.location.href = "../../index.html"
+                            }, 2000);
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            Swal.fire({
+                                icon: 'error',
+                                title: error.response.data,
+                                confirmButtonText: 'OK',
+                                customClass: {
+                                    popup: 'custom-alert',
+                                }
+                            });
+                        })
+                },
+                allowOutsideClick: () => !Swal.isLoading(),
+            })
+        }
     }
 }).mount('#app')
 

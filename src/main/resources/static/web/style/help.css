@@ -31,7 +31,6 @@
 
 /* nav */
 
-
 nav {
     background-color: transparent !important;
     position: absolute !important;
@@ -91,24 +90,10 @@ nav::before {
 
 h1 {
     font-style: normal;
-    font-weight: 700;
-    font-size: 80px;
+    font-size: 70px;
     line-height: 80px;
-    text-transform: uppercase;
     font-family: var(--text-title);
-}
-
-.header-section h1 {
-    position: absolute;
-    left: 3%;
-    bottom: 50px;
-    z-index: 3;
-    font-size: 60px;
-    line-height: 1.2;
-    color: black;
-    display: flex;
-    flex-direction: column;
-    width: 36vw;
+    font-weight: bold !important;
 }
 
 .container-fluid {
@@ -159,9 +144,10 @@ h1 {
 
 .banner {
     background-image: linear-gradient(100deg, #000000, #00000020), url(../images/components2.png);
-    height: 30rem !important;
+    height: 35rem !important;
     background-size: cover;
     background-position: center;
+    margin-bottom: 1rem;
 }
 
 .content-banner {
@@ -193,11 +179,6 @@ h1 {
     padding: 1rem 3rem;
     text-transform: uppercase;
     border-radius: 3rem;
-}
-
-h1 {
-    font-family: var(--text-title);
-    font-weight: bold !important;
 }
 
 .btnData {
@@ -250,6 +231,7 @@ h1 {
     background-size: cover;
     height: 30rem;
 }
+
 
 .inputEmail {
     border: 1px red solid;
@@ -324,7 +306,6 @@ h1 {
 
 .logoWellFooter {
     width: 14rem !important;
-    position: relative;
     left: 85%;
 }
 
@@ -552,7 +533,7 @@ h1 {
 
 /* boton de inicio de sesion  */
 
-#buttonSession {
+.buttonSession {
     width: 145px;
     height: 45px;
     cursor: pointer;
@@ -565,7 +546,7 @@ h1 {
     transition: 0.1s;
 }
 
-#buttonSession::after {
+.buttonSession::after {
     content: '';
     width: 100%;
     height: 100%;
@@ -577,7 +558,7 @@ h1 {
     top: 0;
 }
 
-#buttonSession:active {
+.buttonSession:active {
     transform: scale(0.9) rotate(3deg);
     background: radial-gradient(circle farthest-corner at 10% 20%, rgba(255, 94, 247, 1) 17.8%, rgba(2, 245, 255, 1) 100.2%);
     transition: 0.5s;
@@ -592,207 +573,19 @@ h1 {
     font-family: var(--text-general);
 }
 
+/* nombre del usuario logueado */
+
+#userName {
+    padding: 20px;
+    background-image: radial-gradient(circle farthest-corner at 10% 20%, rgba(255, 94, 247, 1) 17.8%, rgba(2, 245, 255, 1) 100.2%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+}
+
 /* section de mapas */
 
 .mapsSection {
     background-color: #f5f6f7 !important;
-}
-
-/* BTN CART */
-
-.icon-cart {
-    width: 50px;
-    height: 50px;
-    stroke: #000;
-}
-
-.icon-cart:hover {
-    cursor: pointer;
-}
-
-.container-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 34rem;
-    right: 4rem;
-    z-index: 1000;
-    background: linear-gradient(to right, rgb(238, 89, 238), pink);
-    width: 4.5rem;
-    height: 4.5rem;
-    border-radius: 35px;
-    transition: transform 0.5s ease-in-out;
-}
-
-.container-icon:hover {
-    cursor: pointer;
-    transform: scale(1.2);
-}
-
-.count-products {
-    position: absolute;
-    top: 55%;
-    right: 10%;
-    background-color: #000;
-    color: #ffffff;
-    width: 25px;
-    height: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-}
-
-.contador-productos {
-    font-size: 15px;
-}
-
-.container-cart-products {
-    position: absolute;
-    top: 50px;
-    right: 0;
-
-    background-color: #fff;
-    width: 400px;
-    z-index: 1;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
-    border-radius: 10px;
-
-}
-
-.cart-product {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 30px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.20);
-}
-
-.info-cart-product {
-    display: flex;
-    justify-content: space-between;
-    flex: 0.8;
-}
-
-.titulo-producto-carrito {
-    font-size: 20px;
-}
-
-.precio-producto-carrito {
-    font-weight: 700;
-    font-size: 20px;
-    margin-left: 10px;
-}
-
-.cantidad-producto-carrito {
-    font-weight: 400;
-    font-size: 20px;
-}
-
-.icon-close {
-    width: 25px;
-    height: 25px;
-}
-
-.icon-close:hover {
-    stroke: red;
-    cursor: pointer;
-}
-
-.cart-total {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 0;
-    gap: 20px;
-}
-
-.cart-total h3 {
-    font-size: 20px;
-    font-weight: 700;
-}
-
-.total-pagar {
-    font-size: 20px;
-    font-weight: 900;
-}
-
-.hidden-cart {
-    display: none;
-}
-
-.container-items {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.item {
-    border-radius: 10px;
-}
-
-.item:hover {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
-}
-
-.item img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 10px 10px 0 0;
-    transition: all .5s;
-}
-
-.item figure {
-    overflow: hidden;
-}
-
-.item:hover img {
-    transform: scale(1.2);
-}
-
-.info-product {
-    padding: 15px 30px;
-    line-height: 2;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.price {
-    font-size: 18px;
-    font-weight: 900;
-}
-
-.info-product button {
-    border: none;
-    background: none;
-    background-color: #000;
-    color: #fff;
-    padding: 15px 10px;
-    cursor: pointer;
-}
-
-.cart-empty {
-    padding: 20px;
-    text-align: center;
-}
-
-.hidden {
-    display: none;
-}
-
-/* BTN CART */
-@media only screen and (min-width:320px) and (max-width:767px) {
-    * {
-        font-size: 15px;
-    }
-
-    .logoWellFooter {
-        width: 10rem !important;
-        position: relative;
-        left: 40% !important;
-    }
-
 }

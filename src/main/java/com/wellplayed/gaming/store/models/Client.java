@@ -14,6 +14,8 @@ public class Client {
     private long id;
     private String email;
     private String password;
+    private String firstName;
+    private String lastName;
     private int dni;
     private int postalCode;
     private String address;
@@ -31,6 +33,13 @@ public class Client {
         this.postalCode = postalCode;
         this.address = address;
         this.phoneNumber = phoneNumber;
+    }
+
+    public Client(String firstName, String lastName, String email, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
     }
 
     public long getId() {
@@ -97,5 +106,29 @@ public class Client {
     public void addTicket(Ticket ticket) {
         ticket.setClient(this);
         tickets.add(ticket);
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setDni(int dni) {
+        this.dni = dni;
+    }
+
+    public void setPostalCode(int postalCode) {
+        this.postalCode = postalCode;
     }
 }
