@@ -96,19 +96,6 @@ h1 {
     font-weight: bold !important;
 }
 
-/* .header-section h1 {
-    position: absolute;
-    left: 3%;
-    bottom: 50px;
-    z-index: 3;
-    font-size: 60px;
-    line-height: 1.2;
-    color: black;
-    display: flex;
-    flex-direction: column;
-    width: 36vw;
-} */
-
 .container-fluid {
     padding-right: 15px;
     padding-left: 15px;
