@@ -150,15 +150,18 @@ h1 {
 
 .banner {
   background-image: linear-gradient(100deg, #000000, #00000020), url(../images/iCUE_MURALS_ENVIRONMENTAL_RENDER_01.png);
-  height: 50rem;
+  height: 41rem;
   background-size: cover;
   background-position: center;
 }
 
 .content-banner {
-  max-width: 90rem;
+  width: 100%;
   margin: 0 auto;
   padding: 25rem 0;
+  position: absolute;
+  top: -6rem;
+  left: 0.6rem;
 }
 
 .content-banner p {
@@ -622,8 +625,9 @@ h1 {
 
 /*button categories*/
 .button-categories {
+  margin-left: 2rem;
   color: white;
-  background-color: var(--red-dark);
+  background-color: #a736d4;
   cursor: pointer;
   font-weight: 700;
   font-family: Helvetica, "sans-serif";
@@ -637,7 +641,7 @@ h1 {
 }
 
 .button-categories:hover {
-  background-color: var(--red-light);
+  background-color: #cc00ff;
   color: white;
 }
 
@@ -669,7 +673,7 @@ h1 {
 .button-categories2 {
   width: 50%;
   color: white;
-  background-color: var(--red-dark);
+  background-color: #a736d4;
   cursor: pointer;
   font-weight: 700;
   font-family: Helvetica, "sans-serif";
@@ -683,7 +687,7 @@ h1 {
 }
 
 .button-categories2:hover {
-  background-color: var(--red-light);
+  background-color: #cc00ff;
   color: white;
 }
 
@@ -709,6 +713,198 @@ h1 {
 
   100% {
     transform: rotate(360deg);
+  }
+}
+
+/* BTN CART */
+
+.icon-cart {
+  width: 50px;
+  height: 50px;
+  stroke: #000;
+}
+
+.icon-cart:hover {
+  cursor: pointer;
+}
+
+.container-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 32rem;
+  right: 4rem;
+  z-index: 1000;
+  background: linear-gradient(to right, rgb(238, 89, 238), pink);
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 35px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.container-icon:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.count-products {
+  position: absolute;
+  top: 55%;
+  right: 10%;
+  background-color: #000;
+  color: #ffffff;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.contador-productos {
+  font-size: 15px;
+}
+
+.container-cart-products {
+  position: absolute;
+  top: 50px;
+  right: 0;
+
+  background-color: #fff;
+  width: 400px;
+  z-index: 1;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
+  border-radius: 10px;
+
+}
+
+.cart-product {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.20);
+}
+
+.info-cart-product {
+  display: flex;
+  justify-content: space-between;
+  flex: 0.8;
+}
+
+.titulo-producto-carrito {
+  font-size: 20px;
+}
+
+.precio-producto-carrito {
+  font-weight: 700;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.cantidad-producto-carrito {
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.icon-close {
+  width: 25px;
+  height: 25px;
+}
+
+.icon-close:hover {
+  stroke: red;
+  cursor: pointer;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  gap: 20px;
+}
+
+.cart-total h3 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.total-pagar {
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.hidden-cart {
+  display: none;
+}
+
+.container-items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.item {
+  border-radius: 10px;
+}
+
+.item:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
+}
+
+.item img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+  transition: all .5s;
+}
+
+.item figure {
+  overflow: hidden;
+}
+
+.item:hover img {
+  transform: scale(1.2);
+}
+
+.info-product {
+  padding: 15px 30px;
+  line-height: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.info-product button {
+  border: none;
+  background: none;
+  background-color: #000;
+  color: #fff;
+  padding: 15px 10px;
+  cursor: pointer;
+}
+
+.cart-empty {
+  padding: 20px;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+/* BTN CART */
+@media only screen and (min-width: 1024px) {
+  .content-banner {
+    left: 3rem !important;
   }
 }
 
@@ -743,6 +939,7 @@ h1 {
   }
 
   .headsets {
+    padding: 1rem;
     text-align: center;
     width: 100% !important;
   }
@@ -752,6 +949,7 @@ h1 {
     justify-content: center;
   }
 
+
   .product-small-img {
     display: flex;
     flex-direction: row !important;
@@ -760,7 +958,8 @@ h1 {
   }
 
   .button-categories {
-    margin-left: 30%;
+    /* margin-left: 30%; */
+    left: 33%;
     position: relative;
   }
 
@@ -837,23 +1036,25 @@ h1 {
     text-align: center;
     width: 100% !important;
   }
-  
-  .button-categories{
+
+  .button-categories {
+    left: 24%;
+    /* margin-left: 30%; */
     position: relative;
-    left: 28%;
-    width: 30%!important;
   }
-  .button-categories2{
+
+  .button-categories2 {
     position: relative;
-    left: 32%;
-    width: 30%!important;
+    left: 30%;
+    width: 40% !important;
   }
 
   .headsets2 {
     text-align: center;
     width: 90% !important;
   }
-  .headsets2 h2{
+
+  .headsets2 h2 {
     font-weight: bolder;
   }
 
@@ -888,7 +1089,7 @@ h1 {
   }
 
   .img-container img {
-    height: 20rem;
+    height: 18rem !important;
     /* width: 100%; */
     object-fit: cover;
   }
@@ -920,23 +1121,32 @@ h1 {
   .text {
     width: 100% !important;
   }
-  .container-categories{
-    display:flex;
+
+  .container-categories {
+    display: flex;
     flex-direction: column;
   }
+
   .headsets h2 {
     font-weight: bold;
     margin-top: 2rem;
-}
-.headsets p{
-  padding: 1rem;
-}
-.logoWellFooter {
-  width: 10rem !important;
-  position: relative;
-  left: 40%!important;
-}
-  
+  }
+
+  .headsets p {
+    padding: 1rem;
+  }
+
+  .logoWellFooter {
+    width: 4rem !important;
+    position: relative;
+    left: 40% !important;
+  }
+
+  .followUs {
+    width: 50%;
+    position: relative;
+    margin-left: 2rem;
+  }
 }
 
 .product {
@@ -976,12 +1186,17 @@ h1 {
   flex-direction: column;
   justify-content: center;
   text-align: left;
-  width: 23%;
+  width: 26%;
+  align-items: center;
 }
 
 .headsets {
   text-align: center;
-  width: 23%;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .headsets h2 {
@@ -1012,6 +1227,8 @@ h1 {
 
 .text {
   font-size: 16px;
+  text-align: center;
+  padding: .5rem;
 }
 
 /*imagenes galeria*/
@@ -1030,9 +1247,6 @@ h1 {
   max-width: 400px;
   padding: 1rem;
 } */
-
-/* 
-footer  */
 
 .footer {
   background-color: black;
@@ -1090,7 +1304,6 @@ footer  */
 
 .logoWellFooter {
   width: 14rem !important;
-  position: relative;
   left: 85%;
 }
 
@@ -1110,9 +1323,11 @@ footer  */
   font-size: 0.8rem;
 }
 
+
+
 /* boton de inicio de sesion  */
 
-#buttonSession {
+.buttonSession {
   width: 145px;
   height: 45px;
   cursor: pointer;
@@ -1125,7 +1340,7 @@ footer  */
   transition: 0.1s;
 }
 
-#buttonSession::after {
+.buttonSession::after {
   content: '';
   width: 100%;
   height: 100%;
@@ -1137,10 +1352,14 @@ footer  */
   top: 0;
 }
 
-#buttonSession:active {
+.buttonSession:active {
   transform: scale(0.9) rotate(3deg);
   background: radial-gradient(circle farthest-corner at 10% 20%, rgba(255, 94, 247, 1) 17.8%, rgba(2, 245, 255, 1) 100.2%);
   transition: 0.5s;
+}
+
+.historyMap {
+  font-family: var(--text-title);
 }
 
 .logIn {

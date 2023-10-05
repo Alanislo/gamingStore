@@ -3,7 +3,7 @@ package com.wellplayed.gaming.store.models;
 import java.io.ByteArrayOutputStream;
 
 public class Mail {
-    private String sender;
+    private String sender = "gamingstore521@gmail.com";
     private String addressee;
     private String issue;
     private String comment;
@@ -12,15 +12,13 @@ public class Mail {
     public Mail() {
     }
 
-    public Mail(String sender, String addressee, String issue, String comment) {
-        this.sender = sender;
+    public Mail(String addressee, String issue, String comment) {
         this.addressee = addressee;
         this.issue = issue;
         this.comment = comment;
     }
 
-    public Mail(String sender, String addressee, String issue, String comment, ByteArrayOutputStream pdfData) {
-        this.sender = sender;
+    public Mail(String addressee, String issue, String comment, ByteArrayOutputStream pdfData) {
         this.addressee = addressee;
         this.issue = issue;
         this.comment = comment;
@@ -29,10 +27,6 @@ public class Mail {
 
     public String getSender() {
         return sender;
-    }
-
-    public void setSender(String sender) {
-        this.sender = sender;
     }
 
     public String getAddressee() {

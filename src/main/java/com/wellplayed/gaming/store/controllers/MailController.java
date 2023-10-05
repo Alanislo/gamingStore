@@ -23,30 +23,29 @@ public class MailController {
     @Autowired
     private ServiceBilling serviceBilling;
 
-    @PostMapping("/send-email")
+    @PostMapping("/sendemail")
     public ResponseEntity<String> sendEmail(@RequestBody MailDTO mailDTO) {
-        // Verificar que se hayan proporcionado los datos necesarios
-        if (mailDTO.getSender() == null || mailDTO.getSender().isBlank()) {
-            return new ResponseEntity<>("The sender is missing from the form", HttpStatus.BAD_REQUEST);
+        try{        // Verificar que se hayan proporcionado los datos necesarios
+            if ( mailDTO.getComment() == null || mailDTO.getComment().isBlank()) {
+                return new ResponseEntity<>("The comment is missing from the form", HttpStatus.BAD_REQUEST);
+            }
+            if (mailDTO.getIssue().isBlank() || mailDTO.getIssue() == null){
+                return new ResponseEntity<>("Enter the subject", HttpStatus.BAD_REQUEST);
+            }
+
+            // Crear un mensaje de correo electrónico
+            Mail mail = new Mail();
+            mail.setAddressee("julianbrunelli21@gmail.com"); // Reemplaza con la dirección de correo destino
+            mail.setIssue(mailDTO.getIssue());
+            mail.setComment(mailDTO.getComment());
+
+            // Enviar el correo electrónico utilizando el EmailSender
+            serviceEmailSend.sendEmail(mail);
+
+            return new ResponseEntity<>("Email sent successfully", HttpStatus.OK);
+        } catch (Exception e){
+            e.printStackTrace();
+            return new ResponseEntity<>("Error sending email", HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        if ( mailDTO.getComment() == null || mailDTO.getComment().isBlank()) {
-            return new ResponseEntity<>("The comment is missing from the form", HttpStatus.BAD_REQUEST);
-        }
-        if (mailDTO.getIssue().isBlank() || mailDTO.getIssue() == null){
-            return new ResponseEntity<>("Enter the subject", HttpStatus.BAD_REQUEST);
-        }
-
-        // Crear un mensaje de correo electrónico
-        Mail mail = new Mail();
-        mail.setSender(mailDTO.getSender());
-        mail.setAddressee("wellplayedsrl@gmail.com"); // Reemplaza con la dirección de correo destino
-        mail.setIssue(mailDTO.getIssue());
-        mail.setComment(mailDTO.getComment());
-
-        // Enviar el correo electrónico utilizando el EmailSender
-        serviceEmailSend.sendEmail(mail);
-
-        return new ResponseEntity<>("Email sent successfully", HttpStatus.OK);
-
     }
 }
