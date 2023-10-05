@@ -71,12 +71,12 @@ createApp({
                 if(activeImages.length > 0) {
                 activeImages[0].classList.remove('active')
                 }
-
                 this.classList.add('active')
                 document.getElementById('featured').src = this.src
             })
         }
       },
+        }
 }).mount('#app')
 
 
