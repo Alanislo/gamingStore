@@ -35,9 +35,11 @@ createApp({
       buttonTexts: ['Log In', 'Register'],
       currentIndex: 0,
       isLoggedIn: false,
+      client: [],
     }
   },
   created() {
+    this.loadData3()
     this.loadData()
     this.localStorage = JSON.parse(localStorage.getItem("carritoProductos")) || [];
     this.carrito = this.localStorage;
@@ -49,6 +51,14 @@ createApp({
     }
   },
   methods: {
+    loadData3() {
+      axios.get('/api/clients/current')
+        .then(response => {
+          this.client = response.data
+          console.log(this.client);
+        })
+        .catch(error => console.error('Error:', error));
+    },
     loadData() {
       axios({
         method: "get",

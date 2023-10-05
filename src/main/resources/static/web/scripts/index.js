@@ -11,7 +11,8 @@ createApp({
             carrito: [],
             cart: 0,
             localStorage: [],
-            localStorageQty: 0
+            localStorageQty: 0,
+            client: [],
         }
     },
     created() {

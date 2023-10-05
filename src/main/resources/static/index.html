@@ -47,6 +47,10 @@
                     <div class="collapse navbar-collapse w-100 justify-content-end gap-5 me-5 align-items-center p-3"
                         id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto ulNav align-items-end">
+                            <div v-if="isLoggedIn">
+                                <p class="fs-4 m-0" id="userName">{{ client.firstName }} {{
+                                    client.lastName }}</p>
+                            </div>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Home</a>
                             </li>
@@ -127,17 +131,17 @@
                     <div class="card-category category-keyboard" data-aos="flip-up" data-aos-easing="ease-out-cubic"
                         data-aos-duration="2000">
                         <p>Keyboard Gamer</p>
-                        <span>Ver más</span>
+                        <span>See more</span>
                     </div>
                     <div class="card-category category-mouse" data-aos="flip-down" data-aos-easing="ease-out-cubic"
                         data-aos-duration="2000">
                         <p>Mouse Gamer</p>
-                        <span>Ver más</span>
+                        <span>See more</span>
                     </div>
                     <div class="card-category category-headset" data-aos="flip-up" data-aos-easing="ease-out-cubic"
                         data-aos-duration="2000">
                         <p>Headsets gamer</p>
-                        <span>Ver más</span>
+                        <span>See more</span>
                     </div>
                 </div>
             </section>

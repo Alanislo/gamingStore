@@ -45,6 +45,10 @@
                 <div class="collapse navbar-collapse w-100 justify-content-end gap-5 me-5 align-items-center p-3"
                     id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto ulNav align-items-end">
+                        <div v-if="isLoggedIn">
+                            <p class="fs-4 m-0" id="userName">{{ client.firstName }} {{
+                                client.lastName }}</p>
+                        </div>
                         <li class="nav-item">
                             <a class="nav-link" href="../../index.html">Home</a>
                         </li>

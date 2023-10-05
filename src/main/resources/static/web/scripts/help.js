@@ -38,7 +38,6 @@ const url = createApp({
         loadData2() {
             axios.get('/api/client/authenticate')
                 .then(response => {
-                    console.log(response);
                     if (response.status == 200) {
                         this.isLoggedIn = true;
                     }
